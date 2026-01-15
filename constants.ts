@@ -1,0 +1,147 @@
+
+import { VideoProject, ExperienceItem, SkillCategory, Testimonial } from './types';
+
+export const SOCIAL_LINKS = {
+  email: "Mostafadrazy@gmail.com",
+  phone: "+212 657 067 384",
+  linkedin: "https://linkedin.com/in/eddarrazy",
+  website: "https://www.9adiya.site/",
+  location: "Salé, Morocco"
+};
+
+export const ASSETS = {
+  heroVideo: "https://res.cloudinary.com/dmnqlruhl/video/upload/users_cm36fnldg0bvzqq01ucd25h3d_hv1qaGPxLSiUaA4R-lv_0_20240403210232_1_n5qbah.mp4",
+  heroImageDesktop: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764382602/me-in-desktop_mdqom4.png",
+  heroImagePortrait: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764373738/nano-banana_A_portrait_1with_dram_jlmfv8.png",
+  footerBanner: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1767054584/s_olcyqf.png"
+};
+
+export const VIDEOS: VideoProject[] = [
+  {
+    title: "Porsche Cinematic",
+    category: "Cinematography",
+    url: "https://storage.googleapis.com/creatorspace-public/users%2Fcm36fnldg0bvzqq01ucd25h3d%2FQUw3Vga10FLSgpm7-Porsche%2520(2).mp4?w=1280&q=100"
+  },
+  {
+    title: "Fitness Lifestyle",
+    category: "Reels",
+    url: "https://storage.googleapis.com/creatorspace-public/users%2Fcm36fnldg0bvzqq01ucd25h3d%2F8dIqUuICpyVplbPu-Focus%2520on%2520Building%2520muscle_2.mp4?w=1280&q=100"
+  },
+  {
+    title: "Sequence VFX",
+    category: "VFX",
+    url: "https://storage.googleapis.com/creatorspace-public/users%2Fcm36fnldg0bvzqq01ucd25h3d%2FzkXr4qomep6XAYxg-Sequence%252002_6.mp4?w=1280&q=100"
+  },
+  {
+    title: "Aya",
+    category: "Cinematography",
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1764376898/Aya_anxhsh.mp4"
+  },
+  {
+    title: "Sequence 01",
+    category: "Editing",
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1764377214/Sequence_01_6_hjkn7p.mp4"
+  }
+];
+
+export const ALL_PROJECTS = [
+  ...VIDEOS,
+  {
+    title: "9adiya.site",
+    category: "Web Development",
+    url: "https://www.9adiya.site/",
+    isWeb: true,
+    year: "2024"
+  },
+  {
+    title: "Neon Nights",
+    category: "Motion Design",
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1764377214/Sequence_01_6_hjkn7p.mp4",
+    year: "2024"
+  },
+  {
+    title: "Urban Flow",
+    category: "Editing",
+    url: "https://storage.googleapis.com/creatorspace-public/users%2Fcm36fnldg0bvzqq01ucd25h3d%2F8dIqUuICpyVplbPu-Focus%2520on%2520Building%2520muscle_2.mp4?w=1280&q=100",
+    year: "2023"
+  },
+  {
+    title: "Abstract Realm",
+    category: "VFX",
+    url: "https://storage.googleapis.com/creatorspace-public/users%2Fcm36fnldg0bvzqq01ucd25h3d%2FzkXr4qomep6XAYxg-Sequence%252002_6.mp4?w=1280&q=100",
+    year: "2023"
+  },
+  {
+    title: "Brand Identity",
+    category: "Art Direction",
+    url: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764377769/Screenshot_10-5-2025_193454_www.9adiya.site_v37yha.jpg",
+    isWeb: true,
+    year: "2023"
+  }
+];
+
+export const EXPERIENCE: ExperienceItem[] = [
+  {
+    company: "Slimstock",
+    role: "Video Editor & Graphic Designer",
+    period: "Jul 2025 - Present"
+  },
+  {
+    company: "S2M Consulting",
+    role: "Data Scraping Specialist",
+    period: "May 2024 - Jun 2024"
+  },
+  {
+    company: "DigiReach Media",
+    role: "Video Editor & Graphic Designer",
+    period: "Feb 2022 - Aug 2023"
+  },
+  {
+    company: "Viral Ideas",
+    role: "Video Editor & Graphic Designer",
+    period: "Apr 2023 - Jun 2023"
+  },
+  {
+    company: "Dar Chabab Batana",
+    role: "Graphic Design Instructor",
+    period: "Jan 2020 - Apr 2020"
+  }
+];
+
+export const SKILLS: SkillCategory[] = [
+  {
+    title: "Creative",
+    skills: ["Premiere Pro", "After Effects", "DaVinci Resolve", "Photoshop", "Illustrator", "Figma"]
+  },
+  {
+    title: "Technical",
+    skills: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Python", "Django", "Scraping"]
+  }
+];
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote: "Mustapha's ability to blend rhythm and visual storytelling completely transformed our brand narrative. He doesn't just edit; he engineers emotion.",
+    name: "Sarah Jenkins",
+    role: "Creative Director",
+    company: "Visionary Media"
+  },
+  {
+    quote: "Fast, precise, and incredibly creative. The kinetic typography work he delivered set a new standard for our marketing campaigns.",
+    name: "David Alami",
+    role: "CMO",
+    company: "TechFlow"
+  },
+  {
+    quote: "A rare talent who bridges the gap between technical development and high-end design. The website he built is both performant and visually stunning.",
+    name: "Elena Rodriguez",
+    role: "Founder",
+    company: "Lumina Studios"
+  }
+];
+
+export const IMAGES = {
+  hero: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764373738/nano-banana_A_portrait_1with_dram_jlmfv8.png",
+  about: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764382689/c02e59e2_Large_dpwia7.png",
+  project: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764377769/Screenshot_10-5-2025_193454_www.9adiya.site_v37yha.jpg"
+};
