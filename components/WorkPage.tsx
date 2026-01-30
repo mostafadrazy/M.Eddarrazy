@@ -18,7 +18,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   // Filter Logic
-  const categories = ['All', 'Cinematography', 'Editing', 'Motion Design', 'Web Development', 'VFX'];
+  const categories = ['All', 'Cinematography', 'Editing', 'Motion Design', 'Web Development', 'Rebranding', 'Graphic Design'];
   const filteredProjects = filter === 'All'
     ? ALL_PROJECTS
     : ALL_PROJECTS.filter(p => p.category === filter || (filter === 'Motion Design' && p.category === 'Motion'));
@@ -62,6 +62,15 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
       }, 800); // Wait 800ms (Animation is 800ms)
   };
 
+  // Helper to determine the best image source for the modal
+  const getModalImageSrc = (project: any) => {
+      if (project.modalImage) return project.modalImage;
+      // If URL is a direct image file, prefer it over thumbnail (likely higher res)
+      if (/\.(jpg|jpeg|png|webp|gif)$/i.test(project.url)) return project.url;
+      // If URL is a website link (Behance/Site), fallback to thumbnail
+      return project.thumbnail || project.url;
+  };
+
   return (
     <div className="bg-cinema-black min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-orange selection:text-white">
       
@@ -103,23 +112,23 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                   
                   {/* Media Section (Top on mobile, Left on desktop) 
                       Mobile: 55% height (increased from 40%), Desktop: 60% width */}
-                  <div className="relative h-[55vh] lg:h-full lg:w-[60%] bg-[#080808] overflow-hidden group flex items-center justify-center border-b lg:border-b-0 lg:border-r border-white/5">
+                  <div className="relative h-[55vh] lg:h-full lg:w-[60%] bg-[#080808] group flex flex-col border-b lg:border-b-0 lg:border-r border-white/5">
                        
-                       {/* Layer 1: Ambient Background (Blurred) */}
-                       <div className="absolute inset-0 w-full h-full opacity-30 scale-110 blur-3xl pointer-events-none">
+                       {/* Layer 1: Ambient Background (Blurred) - Fixed to container */}
+                       <div className="absolute inset-0 w-full h-full opacity-30 scale-110 blur-3xl pointer-events-none overflow-hidden">
                            {selectedProject.isWeb ? (
-                               <img src={selectedProject.url} className="w-full h-full object-cover" alt="" />
+                               <img src={getModalImageSrc(selectedProject)} className="w-full h-full object-cover" alt="" />
                            ) : (
                                <video src={selectedProject.url} muted loop className="w-full h-full object-cover" />
                            )}
                        </div>
 
-                       {/* Layer 2: Main Content (Contained) */}
-                       <div className="relative w-full h-full p-6 md:p-12 lg:p-16 flex items-center justify-center z-10">
+                       {/* Layer 2: Main Content (Scrollable for Images, Center for Video) */}
+                       <div className={`relative w-full h-full z-10 ${selectedProject.isWeb ? 'overflow-y-auto scrollbar-hide' : 'flex items-center justify-center p-6 md:p-12 lg:p-16'}`}>
                            {selectedProject.isWeb ? (
                                <img 
-                                  src={selectedProject.url} 
-                                  className="max-w-full max-h-full object-contain shadow-2xl rounded-sm"
+                                  src={getModalImageSrc(selectedProject)} 
+                                  className="w-full h-auto object-cover"
                                   alt={selectedProject.title}
                                />
                            ) : (
@@ -165,7 +174,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                                <div className="relative pl-6 border-l border-white/10 mb-8 md:mb-12">
                                     <p className="font-sans text-white/60 text-sm md:text-base leading-relaxed max-w-md">
                                         {selectedProject.isWeb 
-                                            ? "An immersive digital experience focusing on performance, interaction, and visual storytelling. Built with modern web technologies to deliver a seamless user journey."
+                                            ? "An immersive digital experience focusing on visual identity, interaction, and brand storytelling. Crafted to deliver a seamless user journey."
                                             : "A cinematic visual narrative crafted with precision editing and sound design. This piece explores the intersection of rhythm, emotion, and brand identity."
                                         }
                                     </p>
@@ -178,7 +187,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                                   rel="noreferrer"
                                   className="group flex items-center justify-between gap-6 bg-white text-black pl-6 pr-2 py-2 rounded-full font-sans font-bold uppercase tracking-wider hover:bg-accent-orange transition-all duration-300 w-full md:w-auto min-w-[200px] mb-12"
                                >
-                                   <span className="text-sm">{selectedProject.isWeb ? 'Visit Website' : 'Watch Full Project'}</span>
+                                   <span className="text-sm">{selectedProject.isWeb ? 'View Project' : 'Watch Full Project'}</span>
                                    <div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
                                       <ArrowUpRight size={16} />
                                    </div>
@@ -216,7 +225,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                     return (
                         <div className="w-full h-full relative bg-cinema-black">
                              {project.isWeb ? (
-                                <img src={project.url} className="w-full h-full object-cover" alt="" />
+                                <img src={project.thumbnail || project.url} className="w-full h-full object-cover" alt="" />
                              ) : (
                                 <video src={project.url} autoPlay muted loop className="w-full h-full object-cover" />
                              )}
@@ -314,7 +323,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                           <div className="w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105">
                                {project.isWeb ? (
                                   <img 
-                                    src={project.url} 
+                                    src={project.thumbnail || project.url} 
                                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" 
                                     alt={project.title}
                                   />

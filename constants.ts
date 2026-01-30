@@ -50,6 +50,7 @@ export const ALL_PROJECTS = [
     title: "9adiya.site",
     category: "Web Development",
     url: "https://www.9adiya.site/",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764377769/Screenshot_10-5-2025_193454_www.9adiya.site_v37yha.jpg",
     isWeb: true,
     year: "2024"
   },
@@ -77,6 +78,57 @@ export const ALL_PROJECTS = [
     url: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764377769/Screenshot_10-5-2025_193454_www.9adiya.site_v37yha.jpg",
     isWeb: true,
     year: "2023"
+  },
+  {
+    title: "Dripergy Logo",
+    category: "Graphic Design",
+    url: "https://www.behance.net/gallery/210280955/LOGO-DESIGN-DRIPERGY",
+    thumbnail: "https://mir-s3-cdn-cf.behance.net/projects/808/35db14210280955.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png",
+    isWeb: true,
+    year: "2024"
+  },
+  {
+    title: "Catalyst Creators",
+    category: "Graphic Design",
+    url: "https://www.behance.net/gallery/206892799/Logo-design-For-Catalyst-Creators",
+    thumbnail: "https://mir-s3-cdn-cf.behance.net/projects/808/d4596c206892799.Y3JvcCwxMTcyLDkxNiwzNTMsNTg.jpg",
+    modalImage: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a7be34206892799.66d475bc43c11.jpg",
+    isWeb: true,
+    year: "2024"
+  },
+  {
+    title: "Resume Verification Ads",
+    category: "Graphic Design",
+    url: "https://www.behance.net/gallery/195604377/Facebook-Ads-Posters-for-a-Resume-Verification-Company",
+    thumbnail: "https://mir-s3-cdn-cf.behance.net/projects/808/14c22b195604377.Y3JvcCwxMDgwLDg0NCwwLDEwOQ.png",
+    isWeb: true,
+    year: "2024"
+  },
+  {
+    title: "Sausome Gorilla Merch",
+    category: "Graphic Design",
+    url: "https://www.behance.net/gallery/185805541/Merch-For-Sausome-Gorilla-Stringer-Tank",
+    thumbnail: "https://mir-s3-cdn-cf.behance.net/projects/808/553438185805541.Y3JvcCwxMTY5LDkxNCwxMzAsMzA4NQ.png",
+    modalImage: "https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/3ddcdc185805541.6569e78aeac82.png",
+    isWeb: true,
+    year: "2023"
+  },
+  {
+    title: "Gym Coach Website",
+    category: "Web Development",
+    url: "https://www.behance.net/gallery/183612443/A-Gym-coach-Website-Design-UIUX",
+    thumbnail: "https://mir-s3-cdn-cf.behance.net/projects/808/f0b383183612443.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png",
+    modalImage: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/e33ab7183612443.6542ba9b0143e.png",
+    isWeb: true,
+    year: "2023"
+  },
+  {
+    title: "Association Sportive Sale",
+    category: "Rebranding",
+    url: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/30f52e151133187.630668ac01f38.png",
+    thumbnail: "https://mir-s3-cdn-cf.behance.net/projects/808/78c0aa151133187.Y3JvcCwxNDAwLDEwOTUsMCwxNDkw.png",
+    isWeb: true,
+    year: "2024"
   }
 ];
 

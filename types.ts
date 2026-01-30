@@ -1,7 +1,10 @@
+
 export interface VideoProject {
   title: string;
   category: string;
   url: string;
+  thumbnail?: string;
+  modalImage?: string;
   isWeb?: boolean;
   year?: string;
 }

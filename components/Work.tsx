@@ -8,10 +8,24 @@ interface WorkProps {
 }
 
 const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
-  // Combined projects
+  // Combined projects - manually curated for Home Page
   const projects = [
-    ...VIDEOS,
-    { title: "9adiya.site", category: "Web Development", url: "https://www.9adiya.site/", isWeb: true }
+    ...VIDEOS.slice(0, 3), // Show top 3 videos
+    { 
+        title: "9adiya.site", 
+        category: "Web Development", 
+        url: "https://www.9adiya.site/", 
+        thumbnail: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764377769/Screenshot_10-5-2025_193454_www.9adiya.site_v37yha.jpg",
+        isWeb: true 
+    },
+    {
+        title: "Association Sportive Sale",
+        category: "Rebranding",
+        url: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/30f52e151133187.630668ac01f38.png",
+        thumbnail: "https://mir-s3-cdn-cf.behance.net/projects/808/78c0aa151133187.Y3JvcCwxNDAwLDEwOTUsMCwxNDkw.png",
+        isWeb: true,
+        year: "2024"
+    }
   ];
 
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
@@ -78,11 +92,20 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
       }, 800); // Wait 800ms (Animation is 800ms)
   };
 
+  // Helper to determine the best image source for the modal
+  const getModalImageSrc = (project: any) => {
+      if (project.modalImage) return project.modalImage;
+      // If URL is a direct image file, prefer it over thumbnail (likely higher res)
+      if (/\.(jpg|jpeg|png|webp|gif)$/i.test(project.url)) return project.url;
+      // If URL is a website link (Behance/Site), fallback to thumbnail
+      return project.thumbnail || project.url;
+  };
+
   return (
     <section id="work" className="bg-cinema-black py-16 md:py-24 relative z-10">
       
       {/* =========================================================================
-          PROJECT DETAIL OVERLAY (Copied from WorkPage for consistency)
+          PROJECT DETAIL OVERLAY
          ========================================================================= */}
       {selectedProject && (
           <div className={`fixed inset-0 z-[1005] flex flex-col bg-[#050505] transition-transform duration-[800ms] cubic-bezier(0.76, 0, 0.24, 1) ${isModalVisible ? 'translate-y-0' : 'translate-y-full'}`}>
@@ -117,21 +140,23 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
               <div className="flex flex-col lg:flex-row h-full w-full pt-24 md:pt-32">
                   
                   {/* Media Section */}
-                  <div className="relative h-[55vh] lg:h-full lg:w-[60%] bg-[#080808] overflow-hidden group flex items-center justify-center border-b lg:border-b-0 lg:border-r border-white/5">
+                  <div className="relative h-[55vh] lg:h-full lg:w-[60%] bg-[#080808] group border-b lg:border-b-0 lg:border-r border-white/5 flex flex-col">
                        
-                       <div className="absolute inset-0 w-full h-full opacity-30 scale-110 blur-3xl pointer-events-none">
+                       {/* Blurred Background - Fixed to container */}
+                       <div className="absolute inset-0 w-full h-full opacity-30 scale-110 blur-3xl pointer-events-none overflow-hidden">
                            {selectedProject.isWeb ? (
-                               <img src={selectedProject.url} className="w-full h-full object-cover" alt="" />
+                               <img src={getModalImageSrc(selectedProject)} className="w-full h-full object-cover" alt="" />
                            ) : (
                                <video src={selectedProject.url} muted loop className="w-full h-full object-cover" />
                            )}
                        </div>
 
-                       <div className="relative w-full h-full p-6 md:p-12 lg:p-16 flex items-center justify-center z-10">
+                       {/* Content Wrapper - Allows scrolling for Web/Images, Center for Videos */}
+                       <div className={`relative w-full h-full z-10 ${selectedProject.isWeb ? 'overflow-y-auto scrollbar-hide' : 'flex items-center justify-center p-6 md:p-12 lg:p-16'}`}>
                            {selectedProject.isWeb ? (
                                <img 
-                                  src={selectedProject.url} 
-                                  className="max-w-full max-h-full object-contain shadow-2xl rounded-sm"
+                                  src={getModalImageSrc(selectedProject)} 
+                                  className="w-full h-auto object-cover"
                                   alt={selectedProject.title}
                                />
                            ) : (
@@ -171,7 +196,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                                <div className="relative pl-6 border-l border-white/10 mb-8 md:mb-12">
                                     <p className="font-sans text-white/60 text-sm md:text-base leading-relaxed max-w-md">
                                         {selectedProject.isWeb 
-                                            ? "An immersive digital experience focusing on performance, interaction, and visual storytelling. Built with modern web technologies to deliver a seamless user journey."
+                                            ? "An immersive digital experience focusing on visual identity, interaction, and brand storytelling. Crafted to deliver a seamless user journey."
                                             : "A cinematic visual narrative crafted with precision editing and sound design. This piece explores the intersection of rhythm, emotion, and brand identity."
                                         }
                                     </p>
@@ -183,7 +208,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                                   rel="noreferrer"
                                   className="group flex items-center justify-between gap-6 bg-white text-black pl-6 pr-2 py-2 rounded-full font-sans font-bold uppercase tracking-wider hover:bg-accent-orange transition-all duration-300 w-full md:w-auto min-w-[200px] mb-12"
                                >
-                                   <span className="text-sm">{selectedProject.isWeb ? 'Visit Website' : 'Watch Full Project'}</span>
+                                   <span className="text-sm">{selectedProject.isWeb ? 'View Project' : 'Watch Full Project'}</span>
                                    <div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
                                       <ArrowUpRight size={16} />
                                    </div>
@@ -246,7 +271,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                                 
                                 <p className="font-sans text-sm md:text-base text-white/60 leading-relaxed max-w-sm">
                                     {isLandscape 
-                                        ? "Full-stack web development and UI/UX design featuring modern technologies." 
+                                        ? "Strategic brand identity and digital design that cuts through the noise." 
                                         : "Cinematic visual storytelling crafted for maximum engagement and brand impact."}
                                 </p>
                             </div>
@@ -275,7 +300,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                              >
                                  {project.isWeb ? (
                                      <img 
-                                        src="https://res.cloudinary.com/dmnqlruhl/image/upload/v1764377769/Screenshot_10-5-2025_193454_www.9adiya.site_v37yha.jpg" 
+                                        src={project.thumbnail || project.url} 
                                         alt={project.title}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                      />
