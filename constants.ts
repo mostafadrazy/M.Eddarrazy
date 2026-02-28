@@ -20,17 +20,17 @@ export const VIDEOS: VideoProject[] = [
   {
     title: "Porsche Cinematic",
     category: "Cinematography",
-    url: "https://storage.googleapis.com/creatorspace-public/users%2Fcm36fnldg0bvzqq01ucd25h3d%2FQUw3Vga10FLSgpm7-Porsche%2520(2).mp4?w=1280&q=100"
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772298922/Porsche_2_tzdfdk.mp4"
   },
   {
     title: "Fitness Lifestyle",
     category: "Reels",
-    url: "https://storage.googleapis.com/creatorspace-public/users%2Fcm36fnldg0bvzqq01ucd25h3d%2F8dIqUuICpyVplbPu-Focus%2520on%2520Building%2520muscle_2.mp4?w=1280&q=100"
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772298931/Focus_on_Building_muscle_2_z2j84v.mp4"
   },
   {
     title: "Sequence VFX",
     category: "VFX",
-    url: "https://storage.googleapis.com/creatorspace-public/users%2Fcm36fnldg0bvzqq01ucd25h3d%2FzkXr4qomep6XAYxg-Sequence%252002_6.mp4?w=1280&q=100"
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772299348/Extremely_affordable_w5yyj8.mp4"
   },
   {
     title: "Aya",
@@ -45,7 +45,33 @@ export const VIDEOS: VideoProject[] = [
 ];
 
 export const ALL_PROJECTS = [
-  ...VIDEOS,
+  {
+    title: "Anime & Movie Streaming Platform",
+    category: "Web Development",
+    url: "https://movies-dun-one.vercel.app/",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1772301647/Gemini_Generatedw_Image_fr5tnrfr5tnrfr5t-_1_ivnlsv.png",
+    modalImage: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1772301628/screencapture-movies-dun-one-vercel-app-2026-02-28-18_00_11_dngvxt.png",
+    isWeb: true,
+    year: "2026"
+  },
+  {
+    title: "Rachid Labrik",
+    category: "Web Development",
+    url: "https://www.rachidlabrik.com/",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1772300195/synthid-removed-Gemini_Generated_Image_ky744qky744qky74_ezgzoj.jpg",
+    modalImage: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1772300217/Screenshot_28-2-2026_172533_www.rachidlabrik.com_ht3yme.jpg",
+    isWeb: true,
+    year: "2026"
+  },
+  {
+    title: "Tabr3",
+    category: "Web Development",
+    url: "https://tabr3.vercel.app/",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1772302084/3546e6225579067.681fb1002b4b5_hwlyys.jpg",
+    modalImage: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1772302062/screencapture-tabr3-vercel-app-2026-02-28-18_07_30_r4gmra.png",
+    isWeb: true,
+    year: "2024"
+  },
   {
     title: "9adiya.site",
     category: "Web Development",
@@ -59,25 +85,6 @@ export const ALL_PROJECTS = [
     category: "Motion Design",
     url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1764377214/Sequence_01_6_hjkn7p.mp4",
     year: "2024"
-  },
-  {
-    title: "Urban Flow",
-    category: "Editing",
-    url: "https://storage.googleapis.com/creatorspace-public/users%2Fcm36fnldg0bvzqq01ucd25h3d%2F8dIqUuICpyVplbPu-Focus%2520on%2520Building%2520muscle_2.mp4?w=1280&q=100",
-    year: "2023"
-  },
-  {
-    title: "Abstract Realm",
-    category: "VFX",
-    url: "https://storage.googleapis.com/creatorspace-public/users%2Fcm36fnldg0bvzqq01ucd25h3d%2FzkXr4qomep6XAYxg-Sequence%252002_6.mp4?w=1280&q=100",
-    year: "2023"
-  },
-  {
-    title: "Brand Identity",
-    category: "Art Direction",
-    url: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764377769/Screenshot_10-5-2025_193454_www.9adiya.site_v37yha.jpg",
-    isWeb: true,
-    year: "2023"
   },
   {
     title: "Dripergy Logo",
@@ -105,6 +112,43 @@ export const ALL_PROJECTS = [
     year: "2024"
   },
   {
+    title: "Association Sportive Sale",
+    category: "Rebranding",
+    url: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/30f52e151133187.630668ac01f38.png",
+    thumbnail: "https://mir-s3-cdn-cf.behance.net/projects/808/78c0aa151133187.Y3JvcCwxNDAwLDEwOTUsMCwxNDkw.png",
+    isWeb: true,
+    year: "2024"
+  },
+  ...VIDEOS,
+  {
+    title: "Rental Application Design",
+    category: "Web Development",
+    url: "https://www.behance.net/gallery/182674111/A-rental-Application-Website-Design-UIUX",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1772302281/621508182674111.653161b34e0d_pxc0vg.png",
+    modalImage: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1772302280/1ab5ee182674111.6531861b340fc_qehext.png",
+    isWeb: true,
+    year: "2023"
+  },
+  {
+    title: "Urban Flow",
+    category: "Editing",
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772298931/Focus_on_Building_muscle_2_z2j84v.mp4",
+    year: "2023"
+  },
+  {
+    title: "Abstract Realm",
+    category: "VFX",
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772299348/Extremely_affordable_w5yyj8.mp4",
+    year: "2023"
+  },
+  {
+    title: "Brand Identity",
+    category: "Art Direction",
+    url: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764377769/Screenshot_10-5-2025_193454_www.9adiya.site_v37yha.jpg",
+    isWeb: true,
+    year: "2023"
+  },
+  {
     title: "Sausome Gorilla Merch",
     category: "Graphic Design",
     url: "https://www.behance.net/gallery/185805541/Merch-For-Sausome-Gorilla-Stringer-Tank",
@@ -121,14 +165,6 @@ export const ALL_PROJECTS = [
     modalImage: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/e33ab7183612443.6542ba9b0143e.png",
     isWeb: true,
     year: "2023"
-  },
-  {
-    title: "Association Sportive Sale",
-    category: "Rebranding",
-    url: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/30f52e151133187.630668ac01f38.png",
-    thumbnail: "https://mir-s3-cdn-cf.behance.net/projects/808/78c0aa151133187.Y3JvcCwxNDAwLDEwOTUsMCwxNDkw.png",
-    isWeb: true,
-    year: "2024"
   }
 ];
 
