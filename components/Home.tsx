@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Hero from './Hero';
 import Marquee from './Marquee';
 import Work from './Work';
@@ -13,6 +13,10 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ startAnimation, onModalStateChange }) => {
+    useEffect(() => {
+        document.title = "MUSTAPHA EDDARRAZY | DIGITAL CREATOR";
+    }, []);
+
     return (
         <>
             <Hero startAnimation={startAnimation} />

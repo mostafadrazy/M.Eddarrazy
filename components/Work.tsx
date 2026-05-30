@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
-import { VIDEOS } from '../constants';
+import { VIDEOS, slugify } from '../constants';
 import { ArrowUpRight, Maximize2, X } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface WorkProps {
     onModalStateChange?: (isOpen: boolean) => void;
@@ -11,6 +11,24 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
   // Combined projects - manually curated for Home Page
   const projects = [
     ...VIDEOS.slice(0, 3), // Show top 3 videos
+    {
+        title: "ESSA Estates",
+        category: "Web Development",
+        url: "https://www.behance.net/gallery/249578525/project",
+        thumbnail: "https://mir-s3-cdn-cf.behance.net/project_modules/1400/ac1ed9249578525.6a0b1950b542e.png",
+        modalImage: "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/a61dbb249578525.6a0b1950b668d.png",
+        images: [
+          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/a61dbb249578525.6a0b1950b668d.png",
+          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/7e24c8249578525.6a0b1950b6ecf.png",
+          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3a3fad249578525.6a0b1950b624c.png",
+          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/cb3cd4249578525.6a0b1950b5d8a.png",
+          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/78bea6249578525.6a0b1950b6abf.png",
+          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/9e324c249578525.6a0b1950b592e.png",
+          "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/56a06e249578525.6a0b1950b72ee.png"
+        ],
+        isWeb: true,
+        year: "2026"
+    },
     { 
         title: "9adiya.site", 
         category: "Web Development", 
@@ -28,6 +46,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
     }
   ];
 
+  const navigate = useNavigate();
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -70,15 +89,8 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
   };
 
   const handleProjectClick = (project: any) => {
-      setSelectedProject(project);
-      document.body.style.overflow = 'hidden';
-      // Notify parent to hide menu immediately
-      if (onModalStateChange) onModalStateChange(true);
-      
-      // Small delay to allow DOM render before animating class
-      setTimeout(() => {
-          setIsModalVisible(true);
-      }, 10);
+      const slug = slugify(project.title);
+      navigate(`/work/${slug}`);
   };
 
   const handleCloseModal = () => {
@@ -154,11 +166,24 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                        {/* Content Wrapper - Allows scrolling for Web/Images, Center for Videos */}
                        <div className={`relative w-full h-full z-10 ${selectedProject.isWeb ? 'overflow-y-auto scrollbar-hide' : 'flex items-center justify-center p-6 md:p-12 lg:p-16'}`}>
                            {selectedProject.isWeb ? (
-                               <img 
-                                  src={getModalImageSrc(selectedProject)} 
-                                  className="w-full h-auto object-cover"
-                                  alt={selectedProject.title}
-                               />
+                               selectedProject.images && selectedProject.images.length > 0 ? (
+                                   <div className="flex flex-col gap-4">
+                                       {selectedProject.images.map((img, idx) => (
+                                           <img 
+                                               key={idx}
+                                               src={img} 
+                                               className="w-full h-auto object-cover"
+                                               alt={`${selectedProject.title} ${idx + 1}`}
+                                           />
+                                       ))}
+                                   </div>
+                               ) : (
+                                   <img 
+                                      src={getModalImageSrc(selectedProject)} 
+                                      className="w-full h-auto object-cover"
+                                      alt={selectedProject.title}
+                                   />
+                               )
                            ) : (
                                <video 
                                   src={selectedProject.url} 
@@ -335,8 +360,24 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
             })}
         </div>
 
+        {/* See More Projects */}
+        <div className="mt-12 md:mt-24 flex justify-center animate-on-scroll">
+            <Link 
+                  to="/work"
+                  className="group relative inline-flex items-center gap-4 bg-[#0f0f0f] border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:border-accent-orange transition-colors shadow-2xl"
+             >
+                 <span className="relative z-10 font-sans font-bold text-sm md:text-base uppercase tracking-wider text-white group-hover:text-black transition-colors duration-300">
+                     Explore All Work
+                 </span>
+                 <div className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-black text-white group-hover:text-accent-orange transition-colors duration-300">
+                     <ArrowUpRight size={16} />
+                 </div>
+                 <div className="absolute inset-0 bg-accent-orange translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"></div>
+             </Link>
+        </div>
+
         {/* End Spacer */}
-        <div className="h-20 md:h-40"></div>
+        <div className="h-16 md:h-32"></div>
 
       </div>
     </section>

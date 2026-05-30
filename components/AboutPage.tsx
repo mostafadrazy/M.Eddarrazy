@@ -6,6 +6,7 @@ import { ArrowDown, Download } from 'lucide-react';
 const AboutPage: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "About | Mustapha Eddarrazy — Digital Creator";
     }, []);
 
     return (

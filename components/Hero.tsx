@@ -29,9 +29,9 @@ const Hero: React.FC<HeroProps> = ({ startAnimation }) => {
       {/* 1. Background Image Layer */}
       <div className="absolute inset-0 z-0 select-none overflow-hidden">
         <div 
-            className={`w-full h-full relative transition-transform duration-[1500ms] ease-out`}
+            className={`w-full h-full relative transition-transform duration-[4000ms] ease-out`}
             style={{ 
-                transform: `scale(${loaded ? 1 : 1.1})` 
+                transform: `scale(${loaded ? 1.05 : 1.2})` 
             }}
         >
              <img 

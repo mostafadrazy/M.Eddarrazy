@@ -2,6 +2,7 @@
 import React from 'react';
 import { SOCIAL_LINKS, ASSETS } from '../constants';
 import { ArrowUpRight, ArrowUp, Linkedin, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -62,11 +63,6 @@ const Footer: React.FC = () => {
       </div>
 
       {/* 2. Main Footer - Black Background */}
-      {/* 
-          Logic:
-          - Negative margin pulls it up to start exactly at the visual center of the card.
-          - Padding top pushes content down to clear the bottom half of the card.
-      */}
       <footer id="contact" className="bg-cinema-black text-white relative z-30 -mt-[15vh] md:-mt-[27.5vh] pt-[20vh] md:pt-[35vh] pb-12 overflow-hidden">
          
          <div className="container mx-auto px-6 md:px-12 relative">
@@ -114,9 +110,9 @@ const Footer: React.FC = () => {
                       <ul className="space-y-2 md:space-y-3 font-sans font-medium text-sm md:text-lg">
                          {['Work', 'Services', 'About'].map(item => (
                              <li key={item}>
-                                 <a href={`#${item.toLowerCase()}`} className="text-white/60 hover:text-white transition-colors">
+                                 <Link to={`/${item.toLowerCase()}`} className="text-white/60 hover:text-white transition-colors">
                                      {item}
-                                 </a>
+                                 </Link>
                              </li>
                          ))}
                       </ul>

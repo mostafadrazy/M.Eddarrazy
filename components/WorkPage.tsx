@@ -1,13 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
-import { ALL_PROJECTS } from '../constants';
+import { ALL_PROJECTS, slugify } from '../constants';
 import { ArrowUpRight, LayoutGrid, List, X, Play, Maximize2, Minimize2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface WorkPageProps {
   onModalStateChange?: (isOpen: boolean) => void;
 }
 
 const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
+  const navigate = useNavigate();
   const [filter, setFilter] = useState('All');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
@@ -35,19 +37,13 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "Work Archive | Mustapha Eddarrazy — Digital Creator";
   }, []);
 
   // Handle Project Click
   const handleProjectClick = (project: typeof ALL_PROJECTS[0]) => {
-      setSelectedProject(project);
-      document.body.style.overflow = 'hidden';
-      // Notify parent to hide menu immediately
-      if (onModalStateChange) onModalStateChange(true);
-      
-      // Small delay to allow DOM render before animating class
-      setTimeout(() => {
-          setIsModalVisible(true);
-      }, 10);
+      const slug = slugify(project.title);
+      navigate(`/work/${slug}`);
   };
 
   // Handle Close
@@ -126,11 +122,24 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                        {/* Layer 2: Main Content (Scrollable for Images, Center for Video) */}
                        <div className={`relative w-full h-full z-10 ${selectedProject.isWeb ? 'overflow-y-auto scrollbar-hide' : 'flex items-center justify-center p-6 md:p-12 lg:p-16'}`}>
                            {selectedProject.isWeb ? (
-                               <img 
-                                  src={getModalImageSrc(selectedProject)} 
-                                  className="w-full h-auto object-cover"
-                                  alt={selectedProject.title}
-                               />
+                               selectedProject.images && selectedProject.images.length > 0 ? (
+                                   <div className="flex flex-col gap-4">
+                                       {selectedProject.images.map((img, idx) => (
+                                           <img 
+                                               key={idx}
+                                               src={img} 
+                                               className="w-full h-auto object-cover"
+                                               alt={`${selectedProject.title} ${idx + 1}`}
+                                           />
+                                       ))}
+                                   </div>
+                               ) : (
+                                   <img 
+                                      src={getModalImageSrc(selectedProject)} 
+                                      className="w-full h-auto object-cover"
+                                      alt={selectedProject.title}
+                                   />
+                               )
                            ) : (
                                <video 
                                   src={selectedProject.url} 
@@ -424,3 +433,4 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
 };
 
 export default WorkPage;
+

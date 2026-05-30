@@ -45,6 +45,25 @@ export const VIDEOS: VideoProject[] = [
 ];
 
 export const ALL_PROJECTS = [
+  ...VIDEOS,
+  {
+    title: "ESSA Estates",
+    category: "Web Development",
+    url: "https://www.behance.net/gallery/249578525/project",
+    thumbnail: "https://mir-s3-cdn-cf.behance.net/project_modules/1400/ac1ed9249578525.6a0b1950b542e.png",
+    modalImage: "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/a61dbb249578525.6a0b1950b668d.png",
+    images: [
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/a61dbb249578525.6a0b1950b668d.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/7e24c8249578525.6a0b1950b6ecf.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3a3fad249578525.6a0b1950b624c.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/cb3cd4249578525.6a0b1950b5d8a.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/78bea6249578525.6a0b1950b6abf.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/9e324c249578525.6a0b1950b592e.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/56a06e249578525.6a0b1950b72ee.png"
+    ],
+    isWeb: true,
+    year: "2026"
+  },
   {
     title: "Anime & Movie Streaming Platform",
     category: "Web Development",
@@ -119,7 +138,6 @@ export const ALL_PROJECTS = [
     isWeb: true,
     year: "2024"
   },
-  ...VIDEOS,
   {
     title: "Rental Application Design",
     category: "Web Development",
@@ -232,4 +250,20 @@ export const IMAGES = {
   hero: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764373738/nano-banana_A_portrait_1with_dram_jlmfv8.png",
   about: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764382689/c02e59e2_Large_dpwia7.png",
   project: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764377769/Screenshot_10-5-2025_193454_www.9adiya.site_v37yha.jpg"
+};
+
+export const slugify = (text: string): string => {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
+};
+
+export const getProjectBySlug = (slug: string) => {
+  return ALL_PROJECTS.find(p => slugify(p.title) === slug);
 };

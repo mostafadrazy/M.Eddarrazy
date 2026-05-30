@@ -5,6 +5,7 @@ import { ArrowDown } from 'lucide-react';
 const ServicesPage: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "Services | Mustapha Eddarrazy — Digital Creator";
     }, []);
 
     const services = [
@@ -38,7 +39,7 @@ const ServicesPage: React.FC = () => {
     ];
 
     return (
-        <div className="bg-cinema-black min-h-screen pt-28 pb-24 relative z-10 selection:bg-accent-orange selection:text-white">
+        <div className="bg-cinema-black min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-orange selection:text-white">
             
             {/* Header */}
             <div className="container mx-auto px-6 md:px-12 mb-20 md:mb-32">

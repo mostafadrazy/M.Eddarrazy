@@ -6,6 +6,7 @@ import { ArrowUpRight, Copy } from 'lucide-react';
 const ContactPage: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "Contact | Mustapha Eddarrazy — Digital Creator";
     }, []);
 
     const copyToClipboard = () => {

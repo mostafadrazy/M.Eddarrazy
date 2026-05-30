@@ -5,8 +5,10 @@ export interface VideoProject {
   url: string;
   thumbnail?: string;
   modalImage?: string;
+  images?: string[];
   isWeb?: boolean;
   year?: string;
+  slug?: string;
 }
 
 export interface ExperienceItem {
