@@ -1,9 +1,9 @@
-
 import React, { useEffect } from 'react';
 import Hero from './Hero';
 import Marquee from './Marquee';
 import Work from './Work';
 import Services from './Services';
+import AIEngineering from './AIEngineering';
 import Testimonials from './Testimonials';
 import About from './About';
 
@@ -18,14 +18,15 @@ const Home: React.FC<HomeProps> = ({ startAnimation, onModalStateChange }) => {
     }, []);
 
     return (
-        <>
+        <div className="relative min-h-screen bg-transparent">
             <Hero startAnimation={startAnimation} />
             <Marquee />
             <Work onModalStateChange={onModalStateChange} />
             <Services />
+            <AIEngineering />
             <Testimonials />
             <About />
-        </>
+        </div>
     );
 };
 

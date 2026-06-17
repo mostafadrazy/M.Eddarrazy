@@ -11,6 +11,7 @@ import InsightsPage from './components/InsightsPage';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 import ProjectDetailPage from './components/ProjectDetailPage';
+import ScrollingVideoBackground from './components/ScrollingVideoBackground';
 
 const AppContent = () => {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
@@ -39,7 +40,7 @@ const AppContent = () => {
   }, [location.pathname]);
 
   return (
-    <div className="relative min-h-screen bg-cinema-black selection:bg-accent-orange selection:text-white">
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-cinema-black selection:bg-accent-orange selection:text-white">
       <Preloader onComplete={() => setLoading(false)} />
       <div className="noise-overlay"></div>
       
@@ -48,7 +49,8 @@ const AppContent = () => {
         style={{ left: `${cursorPos.x}px`, top: `${cursorPos.y}px`, opacity: loading ? 0 : 1 }}
       ></div>
 
-      <div className={`transition-opacity duration-1000 ${loading ? 'pointer-events-none' : 'pointer-events-auto'}`}>
+      <div className={`w-full overflow-x-hidden transition-opacity duration-1000 ${loading ? 'pointer-events-none' : 'pointer-events-auto'}`}>
+          <ScrollingVideoBackground />
           <Navigation hideMenu={isMenuHidden} />
           
           <main>

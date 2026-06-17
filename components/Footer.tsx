@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { SOCIAL_LINKS, ASSETS } from '../constants';
-import { ArrowUpRight, ArrowUp, Linkedin, Instagram, Twitter, Youtube } from 'lucide-react';
+import { ArrowUpRight, ArrowUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -120,10 +119,10 @@ const Footer: React.FC = () => {
                    <div>
                       <h4 className="font-mono text-[10px] md:text-xs text-accent-orange uppercase tracking-widest mb-4 md:mb-6">Socials</h4>
                        <ul className="space-y-2 md:space-y-3 font-sans font-medium text-sm md:text-lg">
-                         <li><a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-white/60 hover:text-white transition-colors">LinkedIn</a></li>
-                         <li><a href="#" className="text-white/60 hover:text-white transition-colors">Instagram</a></li>
-                         <li><a href="#" className="text-white/60 hover:text-white transition-colors">Twitter</a></li>
-                      </ul>
+                          <li><a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-white/60 hover:text-white transition-colors">LinkedIn</a></li>
+                          <li><a href="#" className="text-white/60 hover:text-white transition-colors">Instagram</a></li>
+                          <li><a href="#" className="text-white/60 hover:text-white transition-colors">Twitter</a></li>
+                       </ul>
                    </div>
                 </div>
 
@@ -150,7 +149,7 @@ const Footer: React.FC = () => {
                     </div>
                  </div>
 
-             </div>
+              </div>
 
          </div>
       </footer>

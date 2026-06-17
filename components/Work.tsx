@@ -114,10 +114,10 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
   };
 
   return (
-    <section id="work" className="bg-cinema-black py-16 md:py-24 relative z-10">
+    <section id="work" className="bg-transparent py-16 md:py-24 relative z-10">
       
       {/* =========================================================================
-          PROJECT DETAIL OVERLAY
+           PROJECT DETAIL OVERLAY
          ========================================================================= */}
       {selectedProject && (
           <div className={`fixed inset-0 z-[1005] flex flex-col bg-[#050505] transition-transform duration-[800ms] cubic-bezier(0.76, 0, 0.24, 1) ${isModalVisible ? 'translate-y-0' : 'translate-y-full'}`}>
@@ -212,7 +212,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                                    <span className="font-mono text-[10px] text-white/40 uppercase tracking-widest">
                                        {selectedProject.year || '2024'}
                                    </span>
-                               </div>
+                                </div>
 
                                <h2 className="font-display font-black text-4xl md:text-6xl lg:text-7xl text-white uppercase leading-[0.9] tracking-tighter mb-6 md:mb-8 break-words w-full">
                                    {selectedProject.title}
@@ -353,7 +353,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                                          <Maximize2 size={18} className="text-white" />
                                      </button>
                                  )}
-                            </div>
+                             </div>
                         </div>
                     </div>
                 );

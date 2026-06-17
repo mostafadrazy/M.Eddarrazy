@@ -15,7 +15,7 @@ const ContactPage: React.FC = () => {
     };
 
     return (
-        <div className="bg-cinema-black min-h-screen pt-28 pb-12 relative z-10 selection:bg-accent-orange selection:text-white flex flex-col justify-between">
+        <div className="bg-transparent min-h-screen pt-28 pb-12 relative z-10 selection:bg-accent-orange selection:text-white flex flex-col justify-between">
             
             {/* Header */}
             <div className="container mx-auto px-6 md:px-12 animate-on-scroll">
@@ -100,6 +100,34 @@ const ContactPage: React.FC = () => {
 
                 </div>
 
+            </div>
+
+            {/* FAQ / Engagement Section */}
+            <div className="container mx-auto px-6 md:px-12 mt-24 border-t border-white/10 pt-16 animate-on-scroll">
+                <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-10 uppercase">
+                    Engagement Scope
+                </h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm">
+                    <div className="flex flex-col gap-2">
+                        <span className="font-mono text-xs text-accent-orange uppercase tracking-wider">01/ Full Production</span>
+                        <p className="font-sans text-white/50 leading-relaxed">
+                            Complete post-production pipelines. I handle color grading, motion branding, editing cuts, and frontend layout implementations synchronously.
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <span className="font-mono text-xs text-accent-orange uppercase tracking-wider">02/ Automation Setup</span>
+                        <p className="font-sans text-white/50 leading-relaxed">
+                            Consulting on scraper configurations, RAG architectures, and custom LLM workflows to optimize team velocity and capture structural data.
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <span className="font-mono text-xs text-accent-orange uppercase tracking-wider">03/ Remote Availability</span>
+                        <p className="font-sans text-white/50 leading-relaxed">
+                            Operating across CET/EST time zones. Async workflows ensure progress is recorded daily via detailed commits and high-fidelity video updates.
+                        </p>
+                    </div>
+                </div>
             </div>
 
             {/* Footer Minimal */}

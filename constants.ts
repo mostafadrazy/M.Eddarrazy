@@ -216,12 +216,16 @@ export const EXPERIENCE: ExperienceItem[] = [
 
 export const SKILLS: SkillCategory[] = [
   {
-    title: "Creative",
+    title: "AI & Creative Tech",
+    skills: ["Autonomous Agents", "Prompt Engineering", "Large Language Models", "Generative Media", "API Integration", "Vector Search"]
+  },
+  {
+    title: "Creative Production",
     skills: ["Premiere Pro", "After Effects", "DaVinci Resolve", "Photoshop", "Illustrator", "Figma"]
   },
   {
-    title: "Technical",
-    skills: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Python", "Django", "Scraping"]
+    title: "Software Engineering",
+    skills: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Python", "Django", "Data Scraping"]
   }
 ];
 

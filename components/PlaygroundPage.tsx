@@ -57,11 +57,27 @@ const PlaygroundPage: React.FC = () => {
             date: 'July 22, 2024',
             video: VIDEOS[3].url,
             grid: 'col-span-1 row-span-1'
+        },
+        {
+            id: 'EXP-007',
+            title: 'Agent Memory Loops',
+            type: 'AI/Agentic',
+            date: 'Oct 15, 2025',
+            video: VIDEOS[4].url,
+            grid: 'col-span-1 md:col-span-2 row-span-1'
+        },
+        {
+            id: 'EXP-008',
+            title: 'Latent Embedding Space Map',
+            type: 'Generative',
+            date: 'Sep 05, 2025',
+            image: IMAGES.project,
+            grid: 'col-span-1 row-span-1'
         }
     ];
 
     return (
-        <div className="bg-cinema-black min-h-screen pt-28 pb-[20vh] relative z-10 selection:bg-accent-orange selection:text-white">
+        <div className="bg-transparent min-h-screen pt-28 pb-[20vh] relative z-10 selection:bg-accent-orange selection:text-white">
             
             {/* Header */}
             <div className="container mx-auto px-6 md:px-12 mb-16 md:mb-24">

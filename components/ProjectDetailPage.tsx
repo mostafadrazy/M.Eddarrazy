@@ -36,7 +36,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
   // If no project, render modern empty/not-found screen
   if (!project) {
     return (
-      <div className="bg-cinema-black min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24">
+      <div className="bg-transparent min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24">
         <span className="font-mono text-xs text-accent-orange uppercase tracking-[0.2em] mb-4">
           Error 404
         </span>
@@ -89,7 +89,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
   };
 
   return (
-    <div className="bg-cinema-black min-h-screen relative z-10 selection:bg-accent-orange selection:text-white pb-[20vh] md:pb-[42vh]">
+    <div className="bg-transparent min-h-screen relative z-10 selection:bg-accent-orange selection:text-white pb-[20vh] md:pb-[42vh]">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-0 left-0 w-full h-[80vh] opacity-15 overflow-hidden pointer-events-none">

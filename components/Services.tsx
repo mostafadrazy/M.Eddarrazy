@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { ASSETS } from '../constants';
@@ -42,7 +41,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="bg-[#050505] text-white py-16 md:py-32 relative overflow-hidden z-20 transition-colors duration-500">
+    <section id="services" className="bg-transparent text-white py-16 md:py-32 relative overflow-hidden z-20 transition-colors duration-500">
         
         {/* Background Images Layer */}
         <div className="absolute inset-0 pointer-events-none z-0">

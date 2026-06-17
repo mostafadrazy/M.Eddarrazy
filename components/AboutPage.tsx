@@ -10,7 +10,7 @@ const AboutPage: React.FC = () => {
     }, []);
 
     return (
-        <div className="bg-cinema-black min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-orange selection:text-white">
+        <div className="bg-transparent min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-orange selection:text-white">
             {/* Header / Title */}
              <div className="container mx-auto px-6 md:px-12 mb-16 md:mb-24">
                 <div className="flex flex-col gap-2 mb-12 animate-on-scroll">
@@ -153,8 +153,41 @@ const AboutPage: React.FC = () => {
 
                     </div>
                 </div>
+            {/* Core Manifesto Section */}
+            <div className="container mx-auto px-6 md:px-12 mt-32 border-t border-white/10 pt-20 animate-on-scroll">
+                <span className="font-mono text-xs text-accent-orange uppercase tracking-[0.2em] mb-4 block">
+                    Manifesto
+                </span>
+                <h2 className="font-display font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-16">
+                    Pillars of <br/> Attention Engineering
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                    <div className="flex flex-col gap-4">
+                        <span className="font-mono text-xs text-accent-orange">01/</span>
+                        <h4 className="font-display font-bold text-xl uppercase text-white">Attention Retention</h4>
+                        <p className="font-sans text-sm text-white/50 leading-relaxed">
+                            Rhythm and visual cadence are calibrated to capture cognitive attention in the first 2.5 seconds. Storytelling is engineered as a functional asset.
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <span className="font-mono text-xs text-accent-orange">02/</span>
+                        <h4 className="font-display font-bold text-xl uppercase text-white">Synthesized Logic</h4>
+                        <p className="font-sans text-sm text-white/50 leading-relaxed">
+                            Every pixel must serve a purpose. We merge cinematic aesthetics with clean, optimized frontend performance to ensure visual experiences have real utility.
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <span className="font-mono text-xs text-accent-orange">03/</span>
+                        <h4 className="font-display font-bold text-xl uppercase text-white">Cognitive Automation</h4>
+                        <p className="font-sans text-sm text-white/50 leading-relaxed">
+                            Leveraging machine intelligence to accelerate the creative process. Prompt flows, semantic databases, and custom agents are integrated directly into our visual pipeline.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
     );
 };
 

@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { TESTIMONIALS } from '../constants';
 import { Quote } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="bg-cinema-black py-24 relative z-10 border-t border-white/5">
+    <section className="bg-transparent py-24 relative z-10 border-t border-white/5">
       <div className="container mx-auto px-6 md:px-12">
         
         {/* Header */}
@@ -36,7 +35,7 @@ const Testimonials: React.FC = () => {
 
                <div className="relative z-10 mb-8 md:mb-12">
                   <Quote className="text-accent-orange mb-6 opacity-80" size={32} />
-                  <p className="font-sans text-lg md:text-xl text-white/80 leading-relaxed font-light">
+                  <p className="font-sans text-lg md:text-xl text-white/80 leading-relaxed font-light font-light italic">
                     "{t.quote}"
                   </p>
                </div>
@@ -46,7 +45,7 @@ const Testimonials: React.FC = () => {
                       {t.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-lg text-white leading-tight group-hover:text-accent-orange transition-colors duration-300">
+                    <h4 className="font-display font-bold text-lg text-white leading-tight group-hover:text-accent-orange transition-colors">
                         {t.name}
                     </h4>
                     <p className="font-mono text-[10px] text-white/40 uppercase tracking-widest mt-1">

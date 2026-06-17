@@ -39,7 +39,7 @@ const ServicesPage: React.FC = () => {
     ];
 
     return (
-        <div className="bg-cinema-black min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-orange selection:text-white">
+        <div className="bg-transparent min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-orange selection:text-white">
             
             {/* Header */}
             <div className="container mx-auto px-6 md:px-12 mb-20 md:mb-32">
@@ -110,6 +110,33 @@ const ServicesPage: React.FC = () => {
                         ))}
                     </div>
                 </div>
+            </div>
+
+            {/* AI Integrations Section */}
+            <div className="container mx-auto px-6 md:px-12 mt-32 border-t border-white/10 pt-20 animate-on-scroll">
+                 <span className="font-mono text-xs text-accent-orange uppercase tracking-[0.2em] mb-4 block">
+                     AI & Automation Systems
+                 </span>
+                 <h2 className="font-display font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-16">
+                     Cognitive <br/> Engineering
+                 </h2>
+
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+                     <div>
+                         <h4 className="font-display font-bold text-xl uppercase text-white mb-4">Autonomous Scraping & Ingestion</h4>
+                         <p className="font-sans text-sm text-white/50 leading-relaxed mb-6">
+                             Extracting structural data from thousands of pages at scale. I configure robust scraper networks using Scrapy and Selenium, with auto-triggering workflows that format raw unstructured text into relational databases or vector indices.
+                         </p>
+                         <div className="w-12 h-px bg-white/20"></div>
+                     </div>
+                     <div>
+                         <h4 className="font-display font-bold text-xl uppercase text-white mb-4">Semantic Context & RAG Apps</h4>
+                         <p className="font-sans text-sm text-white/50 leading-relaxed mb-6">
+                             Connecting your custom company knowledge base directly to large language model agents. I architect vector search indexes that enable intelligent question-answering with high precision and verifiable citations.
+                         </p>
+                         <div className="w-12 h-px bg-white/20"></div>
+                     </div>
+                 </div>
             </div>
 
             {/* CTA */}

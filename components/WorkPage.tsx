@@ -68,7 +68,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
   };
 
   return (
-    <div className="bg-cinema-black min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-orange selection:text-white">
+    <div className="bg-transparent min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-orange selection:text-white">
       
       {/* =========================================================================
           PROJECT DETAIL OVERLAY
@@ -260,6 +260,22 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
             <h1 className="font-display font-black text-6xl md:text-[7vw] leading-[0.85] text-white uppercase tracking-tighter">
                 Visual <br/> Archive
             </h1>
+            
+            {/* Portfolio statistics counters */}
+            <div className="flex flex-wrap gap-8 md:gap-16 mt-8 font-mono text-xs text-white/50 border-l border-accent-orange/40 pl-6">
+                <div>
+                    <span className="block text-white font-display font-bold text-2xl">15+</span>
+                    <span className="uppercase text-[9px] tracking-widest text-white/30">Total Works</span>
+                </div>
+                <div>
+                    <span className="block text-white font-display font-bold text-2xl">06+</span>
+                    <span className="uppercase text-[9px] tracking-widest text-white/30">Web & AI Solutions</span>
+                </div>
+                <div>
+                    <span className="block text-white font-display font-bold text-2xl">08+</span>
+                    <span className="uppercase text-[9px] tracking-widest text-white/30">Cinematic & Reels</span>
+                </div>
+            </div>
         </div>
 
         {/* Sticky Toolbar */}
