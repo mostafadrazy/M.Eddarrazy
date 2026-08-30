@@ -129,7 +129,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
 
                    {/* Center: Project Tag */}
                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex bg-white/5 px-4 py-2 rounded-full border border-white/10 items-center gap-2 backdrop-blur-md">
-                       <div className="w-2 h-2 rounded-full bg-accent-orange animate-pulse"></div>
+                       <div className="w-2 h-2 rounded-full bg-accent-red animate-pulse"></div>
                        <span className="font-mono text-[10px] uppercase tracking-widest text-white">
                            Project Detail
                        </span>
@@ -138,12 +138,12 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                    {/* Right: Close Button */}
                    <button 
                       onClick={handleCloseModal}
-                      className="group flex items-center gap-4 text-white hover:text-accent-orange transition-colors z-50 cursor-pointer pointer-events-auto"
+                      className="group flex items-center gap-4 text-white hover:text-accent-red transition-colors z-50 cursor-pointer pointer-events-auto"
                    >
                        <span className="font-mono text-xs uppercase tracking-widest hidden md:block group-hover:-translate-x-2 transition-transform font-bold">
                            Close
                        </span>
-                       <div className="w-12 h-12 rounded-full border border-white/20 group-hover:border-accent-orange bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:bg-accent-orange group-hover:text-black">
+                       <div className="w-12 h-12 rounded-full border border-white/20 group-hover:border-accent-red bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:bg-accent-red group-hover:text-black">
                            <X size={20} />
                        </div>
                    </button>
@@ -205,7 +205,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                            <div className={`transition-all duration-700 delay-300 flex flex-col items-start min-h-full ${isModalVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
                                
                                <div className="flex flex-wrap items-center gap-4 mb-6 md:mb-8">
-                                   <span className="font-mono text-[10px] text-accent-orange border border-accent-orange/30 px-3 py-1 rounded-full uppercase tracking-widest bg-accent-orange/5">
+                                   <span className="font-mono text-[10px] text-accent-red border border-accent-red/30 px-3 py-1 rounded-full uppercase tracking-widest bg-accent-red/5">
                                        {selectedProject.category}
                                    </span>
                                    <span className="w-px h-4 bg-white/10"></span>
@@ -231,7 +231,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                                   href={selectedProject.url}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className="group flex items-center justify-between gap-6 bg-white text-black pl-6 pr-2 py-2 rounded-full font-sans font-bold uppercase tracking-wider hover:bg-accent-orange transition-all duration-300 w-full md:w-auto min-w-[200px] mb-12"
+                                  className="group flex items-center justify-between gap-6 bg-white text-black pl-6 pr-2 py-2 rounded-full font-sans font-bold uppercase tracking-wider hover:bg-accent-red transition-all duration-300 w-full md:w-auto min-w-[200px] mb-12"
                                >
                                    <span className="text-sm">{selectedProject.isWeb ? 'View Project' : 'Watch Full Project'}</span>
                                    <div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
@@ -257,7 +257,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
         {/* Header */}
         <div className="mb-12 md:mb-32 animate-on-scroll">
             <h2 className="font-display font-black text-4xl md:text-8xl text-white leading-none mb-4 md:mb-6">
-                SELECTED <br/> <span className="text-accent-orange">WORKS</span>
+                SELECTED <br/> <span className="text-accent-red">WORKS</span>
             </h2>
             <div className="w-full h-[1px] bg-white/20"></div>
         </div>
@@ -281,7 +281,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                         <div className="md:col-span-5 flex flex-col justify-between order-2 md:order-1 py-2 md:py-4">
                             <div>
                                 <div className="flex items-center gap-4 mb-4 md:mb-6">
-                                    <span className="font-sans text-[9px] md:text-xs font-bold uppercase tracking-widest text-accent-orange border border-accent-orange/30 px-2 py-1 md:px-3 rounded-full">
+                                    <span className="font-sans text-[9px] md:text-xs font-bold uppercase tracking-widest text-accent-red border border-accent-red/30 px-2 py-1 md:px-3 rounded-full">
                                         0{index + 1}
                                     </span>
                                     <span className="w-8 md:w-12 h-[1px] bg-white/20"></span>
@@ -304,9 +304,9 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                             <div className="mt-6 md:mt-0">
                                 <button 
                                     onClick={() => handleProjectClick(project)}
-                                    className="group inline-flex items-center gap-3 font-sans text-xs md:text-sm font-bold uppercase tracking-wider text-white hover:text-accent-orange transition-colors"
+                                    className="group inline-flex items-center gap-3 font-sans text-xs md:text-sm font-bold uppercase tracking-wider text-white hover:text-accent-red transition-colors"
                                 >
-                                    <span className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent-orange group-hover:border-accent-orange group-hover:text-black transition-all">
+                                    <span className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent-red group-hover:border-accent-red group-hover:text-black transition-all">
                                         <ArrowUpRight size={16} />
                                     </span>
                                     Open Project
@@ -347,7 +347,7 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
                                  {isVideo && (
                                      <button 
                                         onClick={toggleFullscreen}
-                                        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 hover:bg-accent-orange hover:scale-110 pointer-events-auto z-20"
+                                        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 hover:bg-accent-red hover:scale-110 pointer-events-auto z-20"
                                         aria-label="Fullscreen"
                                      >
                                          <Maximize2 size={18} className="text-white" />
@@ -364,15 +364,15 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
         <div className="mt-12 md:mt-24 flex justify-center animate-on-scroll">
             <Link 
                   to="/work"
-                  className="group relative inline-flex items-center gap-4 bg-[#0f0f0f] border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:border-accent-orange transition-colors shadow-2xl"
+                  className="group relative inline-flex items-center gap-4 bg-[#0f0f0f] border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:border-accent-red transition-colors shadow-2xl"
              >
                  <span className="relative z-10 font-sans font-bold text-sm md:text-base uppercase tracking-wider text-white group-hover:text-black transition-colors duration-300">
                      Explore All Work
                  </span>
-                 <div className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-black text-white group-hover:text-accent-orange transition-colors duration-300">
+                 <div className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-black text-white group-hover:text-accent-red transition-colors duration-300">
                      <ArrowUpRight size={16} />
                  </div>
-                 <div className="absolute inset-0 bg-accent-orange translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"></div>
+                 <div className="absolute inset-0 bg-accent-red translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"></div>
              </Link>
         </div>
 

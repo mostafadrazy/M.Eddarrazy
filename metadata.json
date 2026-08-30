@@ -1,5 +1,6 @@
 {
   "name": "Mustapha Eddarrazy | Digital Creator",
   "description": "High-impact, kinetic portfolio for Digital Creator Mustapha Eddarrazy. Editorial design with immersive motion.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

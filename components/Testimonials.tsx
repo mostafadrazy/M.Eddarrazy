@@ -11,7 +11,7 @@ const Testimonials: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-24 animate-on-scroll">
            <div>
                 <h2 className="font-display font-black text-4xl md:text-7xl text-white uppercase leading-none mb-6">
-                    Trusted <br/> <span className="text-accent-orange">Voices</span>
+                    Trusted <br/> <span className="text-accent-red">Voices</span>
                 </h2>
                 <div className="w-24 h-1 bg-white/20"></div>
            </div>
@@ -25,7 +25,7 @@ const Testimonials: React.FC = () => {
           {TESTIMONIALS.map((t, i) => (
             <div 
                 key={i} 
-                className="group relative bg-[#111] border border-white/5 p-8 md:p-10 rounded-2xl hover:border-accent-orange/50 transition-all duration-500 flex flex-col justify-between animate-on-scroll hover:-translate-y-2" 
+                className="group relative bg-[#111] border border-white/5 p-8 md:p-10 rounded-2xl hover:border-accent-red/50 transition-all duration-500 flex flex-col justify-between animate-on-scroll hover:-translate-y-2" 
                 style={{ transitionDelay: `${i * 150}ms` }}
             >
                {/* Decorative Background Quote */}
@@ -34,7 +34,7 @@ const Testimonials: React.FC = () => {
                </div>
 
                <div className="relative z-10 mb-8 md:mb-12">
-                  <Quote className="text-accent-orange mb-6 opacity-80" size={32} />
+                  <Quote className="text-accent-red mb-6 opacity-80" size={32} />
                   <p className="font-sans text-lg md:text-xl text-white/80 leading-relaxed font-light font-light italic">
                     "{t.quote}"
                   </p>
@@ -45,7 +45,7 @@ const Testimonials: React.FC = () => {
                       {t.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-lg text-white leading-tight group-hover:text-accent-orange transition-colors">
+                    <h4 className="font-display font-bold text-lg text-white leading-tight group-hover:text-accent-red transition-colors">
                         {t.name}
                     </h4>
                     <p className="font-mono text-[10px] text-white/40 uppercase tracking-widest mt-1">

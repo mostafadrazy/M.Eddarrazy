@@ -68,7 +68,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
   };
 
   return (
-    <div className="bg-transparent min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-orange selection:text-white">
+    <div className="bg-transparent min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-red selection:text-white">
       
       {/* =========================================================================
           PROJECT DETAIL OVERLAY
@@ -84,7 +84,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
 
                    {/* Center: Project Tag (Hidden on small mobile, visible on desktop) */}
                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex bg-white/5 px-4 py-2 rounded-full border border-white/10 items-center gap-2 backdrop-blur-md">
-                       <div className="w-2 h-2 rounded-full bg-accent-orange animate-pulse"></div>
+                       <div className="w-2 h-2 rounded-full bg-accent-red animate-pulse"></div>
                        <span className="font-mono text-[10px] uppercase tracking-widest text-white">
                            Project Detail
                        </span>
@@ -93,12 +93,12 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                    {/* Right: Close Button - High z-index to sit above everything */}
                    <button 
                       onClick={handleCloseModal}
-                      className="group flex items-center gap-4 text-white hover:text-accent-orange transition-colors z-50 cursor-pointer pointer-events-auto"
+                      className="group flex items-center gap-4 text-white hover:text-accent-red transition-colors z-50 cursor-pointer pointer-events-auto"
                    >
                        <span className="font-mono text-xs uppercase tracking-widest hidden md:block group-hover:-translate-x-2 transition-transform font-bold">
                            Close
                        </span>
-                       <div className="w-12 h-12 rounded-full border border-white/20 group-hover:border-accent-orange bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:bg-accent-orange group-hover:text-black">
+                       <div className="w-12 h-12 rounded-full border border-white/20 group-hover:border-accent-red bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:bg-accent-red group-hover:text-black">
                            <X size={20} />
                        </div>
                    </button>
@@ -165,7 +165,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                                
                                {/* Category Tag */}
                                <div className="flex flex-wrap items-center gap-4 mb-6 md:mb-8">
-                                   <span className="font-mono text-[10px] text-accent-orange border border-accent-orange/30 px-3 py-1 rounded-full uppercase tracking-widest bg-accent-orange/5">
+                                   <span className="font-mono text-[10px] text-accent-red border border-accent-red/30 px-3 py-1 rounded-full uppercase tracking-widest bg-accent-red/5">
                                        {selectedProject.category}
                                    </span>
                                    <span className="w-px h-4 bg-white/10"></span>
@@ -194,7 +194,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                                   href={selectedProject.url}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className="group flex items-center justify-between gap-6 bg-white text-black pl-6 pr-2 py-2 rounded-full font-sans font-bold uppercase tracking-wider hover:bg-accent-orange transition-all duration-300 w-full md:w-auto min-w-[200px] mb-12"
+                                  className="group flex items-center justify-between gap-6 bg-white text-black pl-6 pr-2 py-2 rounded-full font-sans font-bold uppercase tracking-wider hover:bg-accent-red transition-all duration-300 w-full md:w-auto min-w-[200px] mb-12"
                                >
                                    <span className="text-sm">{selectedProject.isWeb ? 'View Project' : 'Watch Full Project'}</span>
                                    <div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
@@ -241,7 +241,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                              {/* Meta Overlay */}
                              <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent flex justify-between items-end">
                                  <span className="font-display font-bold text-white text-xl uppercase">{project.title}</span>
-                                 <span className="font-mono text-xs text-accent-orange uppercase tracking-widest">{project.year || '2024'}</span>
+                                 <span className="font-mono text-xs text-accent-red uppercase tracking-widest">{project.year || '2024'}</span>
                              </div>
                         </div>
                     );
@@ -254,7 +254,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
         
         {/* Title */}
         <div className="flex flex-col gap-2 mb-16 animate-on-scroll">
-            <span className="font-mono text-xs text-accent-orange uppercase tracking-[0.2em]">
+            <span className="font-mono text-xs text-accent-red uppercase tracking-[0.2em]">
                 Index — 001
             </span>
             <h1 className="font-display font-black text-6xl md:text-[7vw] leading-[0.85] text-white uppercase tracking-tighter">
@@ -262,7 +262,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
             </h1>
             
             {/* Portfolio statistics counters */}
-            <div className="flex flex-wrap gap-8 md:gap-16 mt-8 font-mono text-xs text-white/50 border-l border-accent-orange/40 pl-6">
+            <div className="flex flex-wrap gap-8 md:gap-16 mt-8 font-mono text-xs text-white/50 border-l border-accent-red/40 pl-6">
                 <div>
                     <span className="block text-white font-display font-bold text-2xl">15+</span>
                     <span className="uppercase text-[9px] tracking-widest text-white/30">Total Works</span>
@@ -291,7 +291,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                             onClick={() => setFilter(cat)}
                             className={`font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 ${
                                 filter === cat 
-                                    ? 'text-accent-orange' 
+                                    ? 'text-accent-red' 
                                     : 'text-white/40 hover:text-white'
                             }`}
                         >
@@ -367,14 +367,14 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
 
                           {/* Hover Overlay */}
                           <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-8 text-center backdrop-blur-sm">
-                              <span className="font-mono text-accent-orange text-xs uppercase tracking-widest mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                              <span className="font-mono text-accent-red text-xs uppercase tracking-widest mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
                                   {project.category} — {project.year || '2024'}
                               </span>
                               <h2 className="font-display font-black text-3xl md:text-6xl text-white uppercase leading-[0.9] translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                   {project.title}
                               </h2>
                               <div className="mt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                                  <div className="px-6 py-3 border border-white/20 rounded-full flex items-center gap-2 bg-white text-black hover:bg-accent-orange hover:border-accent-orange hover:text-black transition-colors">
+                                  <div className="px-6 py-3 border border-white/20 rounded-full flex items-center gap-2 bg-white text-black hover:bg-accent-red hover:border-accent-red hover:text-black transition-colors">
                                       <span className="font-sans font-bold text-sm uppercase tracking-wider">Explore</span>
                                       <ArrowUpRight size={16} />
                                   </div>
@@ -404,7 +404,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                           onMouseEnter={() => setHoveredProject(project.title)}
                           onMouseLeave={() => setHoveredProject(null)}
                       >
-                          <div className="col-span-1 hidden md:block font-mono text-xs text-white/40 group-hover:text-accent-orange transition-colors">
+                          <div className="col-span-1 hidden md:block font-mono text-xs text-white/40 group-hover:text-accent-red transition-colors">
                               {(idx + 1).toString().padStart(2, '0')}
                           </div>
                           <div className="col-span-2 hidden md:block font-mono text-xs text-white/60">
@@ -429,7 +429,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                           </div>
                           
                           <div className="absolute right-4 md:right-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 hidden md:block">
-                              <ArrowUpRight className="text-accent-orange" size={24} />
+                              <ArrowUpRight className="text-accent-red" size={24} />
                           </div>
                       </div>
                   ))}

@@ -69,12 +69,12 @@ const InsightsPage: React.FC = () => {
     ];
 
     return (
-        <div className="bg-transparent min-h-screen pt-28 pb-[20vh] relative z-10 selection:bg-accent-orange selection:text-white">
+        <div className="bg-transparent min-h-screen pt-28 pb-[20vh] relative z-10 selection:bg-accent-red selection:text-white">
             
             {/* Header */}
             <div className="container mx-auto px-6 md:px-12 mb-16 md:mb-24">
                  <div className="flex flex-col gap-2 mb-12 animate-on-scroll">
-                    <span className="font-mono text-xs text-accent-orange uppercase tracking-[0.2em]">
+                    <span className="font-mono text-xs text-accent-red uppercase tracking-[0.2em]">
                         Journal — 003
                     </span>
                     <h1 className="font-display font-black text-6xl md:text-[8vw] leading-[0.85] text-white uppercase tracking-tighter">
@@ -109,7 +109,7 @@ const InsightsPage: React.FC = () => {
                             <div className="col-span-2 hidden md:block font-mono text-xs text-white/40 group-hover:text-white transition-colors">
                                 {article.date}
                             </div>
-                            <div className="col-span-2 hidden md:block font-mono text-xs text-accent-orange uppercase tracking-widest">
+                            <div className="col-span-2 hidden md:block font-mono text-xs text-accent-red uppercase tracking-widest">
                                 {article.category}
                             </div>
                             <div className="col-span-10 md:col-span-6">
@@ -118,7 +118,7 @@ const InsightsPage: React.FC = () => {
                                 </h3>
                                 {/* Mobile Meta */}
                                 <div className="md:hidden mt-2 font-mono text-[10px] text-white/40 uppercase tracking-widest flex gap-4">
-                                    <span className="text-accent-orange">{article.category}</span>
+                                    <span className="text-accent-red">{article.category}</span>
                                     <span>{article.date}</span>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@ const InsightsPage: React.FC = () => {
                              ) : (
                                 <img src={article.image} className="w-full h-full object-cover" alt="" />
                              )}
-                             <div className="absolute inset-0 bg-accent-orange/10 mix-blend-overlay"></div>
+                             <div className="absolute inset-0 bg-accent-red/10 mix-blend-overlay"></div>
                         </div>
                     );
                 })()}
@@ -168,7 +168,7 @@ const InsightsPage: React.FC = () => {
                     <p className="font-sans text-white/60 text-center md:text-left">
                         Want to read more about my design philosophy?
                     </p>
-                    <a href="https://linkedin.com/in/eddarrazy" target="_blank" rel="noreferrer" className="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-accent-orange hover:text-white transition-all">
+                    <a href="https://linkedin.com/in/eddarrazy" target="_blank" rel="noreferrer" className="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-accent-red hover:text-white transition-all">
                         Follow on LinkedIn
                     </a>
                 </div>

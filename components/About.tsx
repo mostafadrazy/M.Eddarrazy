@@ -11,7 +11,7 @@ const About: React.FC = () => {
         {/* Large Intro Statement */}
         <div className="mb-20 md:mb-32 max-w-5xl animate-on-scroll">
             <h2 className="font-display font-bold text-3xl md:text-8xl leading-[1.05] md:leading-[0.9] mb-8 md:mb-12">
-                CRAFTING <span className="text-accent-orange italic">NARRATIVES</span> THROUGH <span className="font-sans font-light tracking-tighter">MOTION</span> & DESIGN.
+                CRAFTING <span className="text-accent-red italic">NARRATIVES</span> THROUGH <span className="font-sans font-light tracking-tighter">MOTION</span> & DESIGN.
             </h2>
             <div className="flex flex-col md:flex-row gap-8 md:gap-24 items-start">
                 <div className="w-24 md:w-64 h-[1px] bg-white/20 mt-2 md:mt-4"></div>
@@ -32,7 +32,7 @@ const About: React.FC = () => {
                         alt="Portrait" 
                         className="w-full aspect-[4/5] object-cover grayscale contrast-125 rounded-lg md:rounded-none"
                     />
-                    <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-accent-orange text-white p-6 md:p-8 shadow-xl">
+                    <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-accent-red text-white p-6 md:p-8 shadow-xl">
                           <span className="font-display font-bold text-3xl md:text-4xl block">05+</span>
                           <span className="font-sans text-[10px] md:text-xs uppercase tracking-widest">Years Exp.</span>
                     </div>
@@ -44,12 +44,12 @@ const About: React.FC = () => {
                 
                 {/* Experience */}
                 <div className="animate-on-scroll delay-200">
-                    <h3 className="font-display font-bold text-2xl md:text-3xl mb-6 md:mb-8 text-white">Career Path</h3>
+                    <h3 className="font-display font-bold text-2xl md:text-3xl mb-8 md:mb-10 text-white border-b border-white/20 pb-4">Career Path</h3>
                     <div className="space-y-6 md:space-y-8">
                         {EXPERIENCE.map((exp, i) => (
                             <div key={i} className="border-b border-white/10 pb-6 md:pb-8 last:border-0 hover:pl-4 transition-all duration-300 cursor-default group">
                                 <span className="font-sans text-[10px] md:text-xs text-white/40 mb-2 block">{exp.period}</span>
-                                <h4 className="font-display font-bold text-lg md:text-xl mb-1 group-hover:text-accent-orange transition-colors">{exp.company}</h4>
+                                <h4 className="font-display font-bold text-lg md:text-xl mb-1 group-hover:text-accent-red transition-colors">{exp.company}</h4>
                                 <p className="font-sans text-xs md:text-sm text-white/60 uppercase tracking-wide">{exp.role}</p>
                             </div>
                         ))}
@@ -58,14 +58,14 @@ const About: React.FC = () => {
 
                 {/* Skills */}
                 <div className="animate-on-scroll delay-300">
-                    <h3 className="font-display font-bold text-2xl md:text-3xl mb-6 md:mb-8 text-white">Capabilities</h3>
-                    <div className="flex flex-col gap-6 md:gap-8">
+                    <h3 className="font-display font-bold text-2xl md:text-3xl mb-8 md:mb-10 text-white border-b border-white/20 pb-4">Capabilities</h3>
+                    <div className="flex flex-col">
                         {SKILLS.map((cat, i) => (
-                            <div key={i}>
-                                <h4 className="font-sans font-bold uppercase text-xs md:text-sm mb-3 md:mb-4 text-white/40">{cat.title}</h4>
-                                <div className="flex flex-wrap gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-3">
+                            <div key={i} className="flex flex-col md:flex-row md:items-start py-6 border-b border-white/10 last:border-0 hover:bg-white/[0.02] transition-colors -mx-4 px-4 rounded-xl">
+                                <h4 className="font-mono font-bold uppercase text-[10px] md:text-xs text-accent-red md:w-1/3 shrink-0 mb-4 md:mb-0 mt-1 tracking-widest">{cat.title}</h4>
+                                <div className="flex flex-wrap gap-2 md:gap-3 md:w-2/3">
                                     {cat.skills.map(skill => (
-                                        <span key={skill} className="font-display text-xl md:text-3xl text-white/80 hover:text-accent-orange transition-colors cursor-default">
+                                        <span key={skill} className="font-sans text-xs md:text-sm font-medium text-white/70 bg-[#0f0f0f] border border-white/10 px-4 py-2 rounded-full hover:bg-white/10 hover:text-white hover:border-white/20 transition-all cursor-default shadow-sm">
                                             {skill}
                                         </span>
                                     ))}
@@ -74,11 +74,8 @@ const About: React.FC = () => {
                         ))}
                     </div>
                 </div>
-
             </div>
-
         </div>
-
       </div>
     </section>
   );

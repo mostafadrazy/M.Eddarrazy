@@ -13,7 +13,7 @@ export const ASSETS = {
   heroVideo: "https://res.cloudinary.com/dmnqlruhl/video/upload/users_cm36fnldg0bvzqq01ucd25h3d_hv1qaGPxLSiUaA4R-lv_0_20240403210232_1_n5qbah.mp4",
   heroImageDesktop: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764382602/me-in-desktop_mdqom4.png",
   heroImagePortrait: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764373738/nano-banana_A_portrait_1with_dram_jlmfv8.png",
-  footerBanner: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1767054584/s_olcyqf.png"
+  footerBanner: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1788122775/remove_the_shape_rectanble_202608302146_k7ujuq.jpg"
 };
 
 export const VIDEOS: VideoProject[] = [
@@ -161,7 +161,7 @@ export const ALL_PROJECTS = [
   },
   {
     title: "Brand Identity",
-    category: "Art Direction",
+    category: "Brand Design",
     url: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764377769/Screenshot_10-5-2025_193454_www.9adiya.site_v37yha.jpg",
     isWeb: true,
     year: "2023"

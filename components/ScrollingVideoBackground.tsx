@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useLocation } from 'react-router-dom';
 import Hls from 'hls.js';
+import { useTheme } from '../context/ThemeContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,7 @@ const ScrollingVideoBackground: React.FC = () => {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const location = useLocation();
+  const { isLight } = useTheme();
 
   const [sources, setSources] = useState({
     hls: HLS_A,
@@ -218,8 +220,12 @@ const ScrollingVideoBackground: React.FC = () => {
     <>
       {/* Loading Overlay */}
       {!isLoaded && (
-        <div className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center pointer-events-auto">
-          <div className="text-white text-2xl font-sans font-bold tracking-wider animate-pulse">
+        <div className={`fixed inset-0 z-50 flex flex-col items-center justify-center pointer-events-auto transition-colors duration-300 ${
+          isLight ? 'bg-[#f8f8fa]' : 'bg-black'
+        }`}>
+          <div className={`text-2xl font-sans font-bold tracking-wider animate-pulse ${
+            isLight ? 'text-black' : 'text-white'
+          }`}>
             Loading... {loadingProgress}%
           </div>
         </div>
@@ -228,22 +234,34 @@ const ScrollingVideoBackground: React.FC = () => {
       {/* Video Wrapper */}
       <div
         ref={wrapperRef}
-        className="fixed top-0 left-0 w-full h-full z-0 scale-[1.05] origin-center pointer-events-none select-none overflow-hidden bg-cinema-black"
+        className="fixed top-0 left-0 w-full h-full z-0 scale-[1.05] origin-center pointer-events-none select-none overflow-hidden bg-cinema-black transition-colors duration-400"
       >
         <video
           ref={videoRef}
-          className="w-full h-full object-cover scale-[1.35] opacity-40"
+          className={`w-full h-full object-cover scale-[1.35] transition-opacity duration-500 ${
+            isLight ? 'opacity-25' : 'opacity-40'
+          }`}
           muted
           playsInline
           crossOrigin="anonymous"
         />
-        {/* Ambient Dark Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-cinema-black via-transparent to-cinema-black/80 z-[1] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-cinema-black via-transparent to-cinema-black z-[1] pointer-events-none" />
+        {/* Ambient Overlays */}
+        <div className={`absolute inset-0 z-[1] pointer-events-none transition-all duration-400 ${
+          isLight 
+            ? 'bg-gradient-to-t from-[#f8f8fa] via-transparent to-[#f8f8fa]/85' 
+            : 'bg-gradient-to-t from-cinema-black via-transparent to-cinema-black/80'
+        }`} />
+        <div className={`absolute inset-0 z-[1] pointer-events-none transition-all duration-400 ${
+          isLight 
+            ? 'bg-gradient-to-r from-[#f8f8fa]/80 via-transparent to-[#f8f8fa]/80' 
+            : 'bg-gradient-to-r from-cinema-black via-transparent to-cinema-black'
+        }`} />
         <div 
-          className="absolute inset-0 z-[1] opacity-80 pointer-events-none"
+          className="absolute inset-0 z-[1] opacity-80 pointer-events-none transition-all duration-400"
           style={{
-            background: 'radial-gradient(circle, transparent 30%, #0a0a0a 90%)'
+            background: isLight 
+              ? 'radial-gradient(circle, transparent 35%, #f8f8fa 92%)' 
+              : 'radial-gradient(circle, transparent 30%, #0a0a0a 90%)'
           }}
         />
         <div className="absolute inset-0 backdrop-blur-[1px] z-[1] pointer-events-none" />

@@ -20,7 +20,7 @@ const Hero: React.FC<HeroProps> = ({ startAnimation }) => {
   return (
     <section 
         ref={sectionRef}
-        className="relative h-[100dvh] w-full overflow-hidden bg-transparent flex flex-col justify-center items-center px-6 md:px-12 py-8 md:py-12 cursor-none"
+        className="relative h-[100dvh] w-full overflow-hidden bg-transparent flex flex-col justify-center items-center px-6 md:px-12 py-8 md:py-12"
     >
       {/* 1. Subtle film grain overlay only - absolutely no dark vignettes or gradient filters */}
       <div className="absolute inset-0 z-0 select-none overflow-hidden pointer-events-none">
@@ -43,9 +43,9 @@ const Hero: React.FC<HeroProps> = ({ startAnimation }) => {
         </div>
 
         {/* "EDDARRAZY" */}
-        <div className="overflow-hidden w-full -mt-2 md:-mt-4">
+        <div className="overflow-hidden w-full -mt-2 md:-mt-4"> 
              <h1 
-                className={`font-display font-black text-[12vw] md:text-[8.5vw] leading-[0.85] tracking-tighter text-white transition-transform duration-[1200ms] delay-[250ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${loaded ? 'translate-y-0' : 'translate-y-[120%]'}`}
+                 className={`font-display font-black text-[12vw] md:text-[8.5vw] leading-[0.85] tracking-tighter text-white transition-transform duration-[1200ms] delay-[250ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${loaded ? 'translate-y-0' : 'translate-y-[120%]'}`}
              >
                 EDDARRAZY
             </h1>

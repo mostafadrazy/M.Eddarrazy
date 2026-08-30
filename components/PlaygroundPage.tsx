@@ -77,12 +77,12 @@ const PlaygroundPage: React.FC = () => {
     ];
 
     return (
-        <div className="bg-transparent min-h-screen pt-28 pb-[20vh] relative z-10 selection:bg-accent-orange selection:text-white">
+        <div className="bg-transparent min-h-screen pt-28 pb-[20vh] relative z-10 selection:bg-accent-red selection:text-white">
             
             {/* Header */}
             <div className="container mx-auto px-6 md:px-12 mb-16 md:mb-24">
                  <div className="flex flex-col gap-2 mb-12 animate-on-scroll">
-                    <span className="font-mono text-xs text-accent-orange uppercase tracking-[0.2em]">
+                    <span className="font-mono text-xs text-accent-red uppercase tracking-[0.2em]">
                         Experiments — 000
                     </span>
                     <h1 className="font-display font-black text-6xl md:text-[8vw] leading-[0.85] text-white uppercase tracking-tighter">
@@ -129,7 +129,7 @@ const PlaygroundPage: React.FC = () => {
                             {/* Overlay Info */}
                             <div className="absolute inset-0 p-6 flex flex-col justify-between bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300">
                                 <div className="flex justify-between items-start">
-                                    <span className="font-mono text-[10px] uppercase tracking-widest text-accent-orange border border-accent-orange/30 px-2 py-1 rounded bg-black/50 backdrop-blur-sm">
+                                    <span className="font-mono text-[10px] uppercase tracking-widest text-accent-red border border-accent-red/30 px-2 py-1 rounded bg-black/50 backdrop-blur-sm">
                                         {item.id}
                                     </span>
                                     <ArrowUpRight className="text-white transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300" size={20} />

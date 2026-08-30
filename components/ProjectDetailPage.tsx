@@ -37,7 +37,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
   if (!project) {
     return (
       <div className="bg-transparent min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24">
-        <span className="font-mono text-xs text-accent-orange uppercase tracking-[0.2em] mb-4">
+        <span className="font-mono text-xs text-accent-red uppercase tracking-[0.2em] mb-4">
           Error 404
         </span>
         <h1 className="font-display font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-8">
@@ -45,15 +45,15 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
         </h1>
         <Link 
           to="/work" 
-          className="group relative inline-flex items-center gap-4 bg-[#0f0f0f] border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:border-accent-orange transition-colors"
+          className="group relative inline-flex items-center gap-4 bg-[#0f0f0f] border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:border-accent-red transition-colors"
         >
           <span className="relative z-10 font-mono text-xs uppercase tracking-wider text-white group-hover:text-black transition-colors duration-300">
             Return to Visual Archive
           </span>
-          <div className="relative z-10 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-black text-white group-hover:text-accent-orange transition-colors duration-300">
+          <div className="relative z-10 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-black text-white group-hover:text-accent-red transition-colors duration-300">
             <ArrowLeft size={14} />
           </div>
-          <div className="absolute inset-0 bg-accent-orange translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"></div>
+          <div className="absolute inset-0 bg-accent-red translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"></div>
         </Link>
       </div>
     );
@@ -89,11 +89,11 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
   };
 
   return (
-    <div className="bg-transparent min-h-screen relative z-10 selection:bg-accent-orange selection:text-white pb-[20vh] md:pb-[42vh]">
+    <div className="bg-transparent min-h-screen relative z-10 selection:bg-accent-red selection:text-white pb-[20vh] md:pb-[42vh]">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-0 left-0 w-full h-[80vh] opacity-15 overflow-hidden pointer-events-none">
-        <div className="absolute inset-x-0 top-[-20%] h-full bg-gradient-to-b from-accent-orange/30 via-transparent to-transparent blur-[120px] scale-110"></div>
+        <div className="absolute inset-x-0 top-[-20%] h-full bg-gradient-to-b from-accent-red/30 via-transparent to-transparent blur-[120px] scale-110"></div>
       </div>
 
       <div className="container mx-auto px-6 md:px-12 pt-32 md:pt-40">
@@ -102,16 +102,16 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
         <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <Link 
             to="/work" 
-            className="group inline-flex items-center gap-3 text-white/50 hover:text-accent-orange transition-colors font-mono text-xs uppercase tracking-widest"
+            className="group inline-flex items-center gap-3 text-white/50 hover:text-accent-red transition-colors font-mono text-xs uppercase tracking-widest"
           >
-            <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-accent-orange transition-colors">
+            <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-accent-red transition-colors">
               <ArrowLeft size={14} className="group-hover:-translate-x-0.5 transition-transform" />
             </div>
             Back to Archive
           </Link>
           
           <div className="flex flex-wrap items-center gap-4">
-            <span className="font-mono text-[10px] text-accent-orange border border-accent-orange/30 px-3 py-1 rounded-full uppercase tracking-widest bg-accent-orange/5">
+            <span className="font-mono text-[10px] text-accent-red border border-accent-red/30 px-3 py-1 rounded-full uppercase tracking-widest bg-accent-red/5">
               {project.category}
             </span>
             <span className="w-px h-4 bg-white/10 hidden sm:block"></span>
@@ -159,7 +159,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
                   {/* Subtle hover fullscreen prompt */}
                   <button 
                     onClick={handleFullscreenVideo}
-                    className="absolute bottom-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-accent-orange hover:scale-110 pointer-events-auto transition-all duration-300 z-10"
+                    className="absolute bottom-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-accent-red hover:scale-110 pointer-events-auto transition-all duration-300 z-10"
                     title="Fullscreen Mode"
                   >
                     <Maximize2 size={16} className="text-white" />
@@ -196,7 +196,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
             <div className="bg-[#0f0f0f] border border-white/10 p-6 md:p-8 rounded-2xl flex flex-col gap-6 md:gap-8 shadow-2xl">
               
               <div className="flex flex-col gap-2">
-                <span className="font-mono text-[10px] text-accent-orange uppercase tracking-widest font-bold">
+                <span className="font-mono text-[10px] text-accent-red uppercase tracking-widest font-bold">
                   Description
                 </span>
                 <p className="font-sans text-white/75 text-sm md:text-base leading-relaxed">
@@ -214,15 +214,15 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
                 
                 <div className="flex items-center justify-between py-1 border-b border-white/5">
                   <div className="flex items-center gap-2 text-white/40">
-                    <Tag size={12} className="text-accent-orange" />
+                    <Tag size={12} className="text-accent-red" />
                     <span>Discipline</span>
                   </div>
-                  <span className="text-white hover:text-accent-orange transition-colors">{project.category}</span>
+                  <span className="text-white hover:text-accent-red transition-colors">{project.category}</span>
                 </div>
 
                 <div className="flex items-center justify-between py-1 border-b border-white/5">
                   <div className="flex items-center gap-2 text-white/40">
-                    <Calendar size={12} className="text-accent-orange" />
+                    <Calendar size={12} className="text-accent-red" />
                     <span>Year Completed</span>
                   </div>
                   <span className="text-white">{project.year || '2024'}</span>
@@ -230,7 +230,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
 
                 <div className="flex items-center justify-between py-1 border-b border-white/5">
                   <div className="flex items-center gap-2 text-white/40">
-                    <User size={12} className="text-accent-orange" />
+                    <User size={12} className="text-accent-red" />
                     <span>Creative Lead</span>
                   </div>
                   <span className="text-white">Mustapha Eddarrazy</span>
@@ -238,7 +238,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
 
                 <div className="flex items-center justify-between py-1">
                   <div className="flex items-center gap-2 text-white/40">
-                    <ShieldCheck size={12} className="text-accent-orange" />
+                    <ShieldCheck size={12} className="text-accent-red" />
                     <span>Status</span>
                   </div>
                   <span className="text-white flex items-center gap-1.5">
@@ -254,7 +254,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
                 href={project.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group w-full flex items-center justify-between gap-6 bg-white text-black pl-6 pr-2 py-2 rounded-full font-sans font-bold uppercase tracking-wider hover:bg-accent-orange transition-all duration-300 pointer-events-auto"
+                className="group w-full flex items-center justify-between gap-6 bg-white text-black pl-6 pr-2 py-2 rounded-full font-sans font-bold uppercase tracking-wider hover:bg-accent-red transition-all duration-300 pointer-events-auto"
               >
                 <span className="text-xs md:text-sm">{isWeb ? 'Explore Live Site' : 'Launch Full Output'}</span>
                 <div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
@@ -272,7 +272,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
                   navigator.clipboard.writeText(window.location.href);
                   alert('Copied link to clipboard!');
                 }}
-                className="font-mono text-[10px] text-accent-orange hover:underline cursor-pointer"
+                className="font-mono text-[10px] text-accent-red hover:underline cursor-pointer"
               >
                 Copy Link [↗]
               </button>
@@ -289,16 +289,16 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
             className="group block py-16 px-4 hover:bg-white/[0.02] rounded-3xl transition-all duration-500 border border-transparent hover:border-white/5"
           >
             <div className="flex flex-col items-center">
-              <span className="font-mono text-xs uppercase text-accent-orange tracking-[0.25em] mb-4 flex items-center gap-2">
-                <Play size={10} className="fill-accent-orange" />
+              <span className="font-mono text-xs uppercase text-accent-red tracking-[0.25em] mb-4 flex items-center gap-2">
+                <Play size={10} className="fill-accent-red" />
                 Up Next
               </span>
               
-              <h2 className="font-display font-black text-4xl md:text-8xl text-white group-hover:text-accent-orange transition-colors uppercase leading-none tracking-tighter mb-8 max-w-4xl text-center break-words">
+              <h2 className="font-display font-black text-4xl md:text-8xl text-white group-hover:text-accent-red transition-colors uppercase leading-none tracking-tighter mb-8 max-w-4xl text-center break-words">
                 {nextProject.title}
               </h2>
 
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/5 group-hover:bg-accent-orange group-hover:text-black border border-white/10 group-hover:border-accent-orange text-white flex items-center justify-center transition-all duration-300">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/5 group-hover:bg-accent-red group-hover:text-black border border-white/10 group-hover:border-accent-red text-white flex items-center justify-center transition-all duration-300">
                 <ArrowUpRight size={24} className="group-hover:rotate-45 transition-transform" />
               </div>
             </div>
