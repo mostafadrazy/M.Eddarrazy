@@ -20,27 +20,32 @@ export const VIDEOS: VideoProject[] = [
   {
     title: "Porsche Cinematic",
     category: "Cinematography",
-    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772298922/Porsche_2_tzdfdk.mp4"
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772298922/Porsche_2_tzdfdk.mp4",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/video/upload/so_1/v1772298922/Porsche_2_tzdfdk.jpg"
   },
   {
     title: "Fitness Lifestyle",
     category: "Reels",
-    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772298931/Focus_on_Building_muscle_2_z2j84v.mp4"
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772298931/Focus_on_Building_muscle_2_z2j84v.mp4",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/video/upload/so_1/v1772298931/Focus_on_Building_muscle_2_z2j84v.jpg"
   },
   {
     title: "Sequence VFX",
     category: "VFX",
-    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772299348/Extremely_affordable_w5yyj8.mp4"
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772299348/Extremely_affordable_w5yyj8.mp4",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/video/upload/so_1/v1772299348/Extremely_affordable_w5yyj8.jpg"
   },
   {
     title: "Aya",
     category: "Cinematography",
-    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1764376898/Aya_anxhsh.mp4"
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1764376898/Aya_anxhsh.mp4",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/video/upload/so_1/v1764376898/Aya_anxhsh.jpg"
   },
   {
     title: "Sequence 01",
     category: "Editing",
-    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1764377214/Sequence_01_6_hjkn7p.mp4"
+    url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1764377214/Sequence_01_6_hjkn7p.mp4",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/video/upload/so_1/v1764377214/Sequence_01_6_hjkn7p.jpg"
   }
 ];
 
@@ -103,6 +108,7 @@ export const ALL_PROJECTS = [
     title: "Neon Nights",
     category: "Motion Design",
     url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1764377214/Sequence_01_6_hjkn7p.mp4",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/video/upload/so_1/v1764377214/Sequence_01_6_hjkn7p.jpg",
     year: "2024"
   },
   {
@@ -151,12 +157,14 @@ export const ALL_PROJECTS = [
     title: "Urban Flow",
     category: "Editing",
     url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772298931/Focus_on_Building_muscle_2_z2j84v.mp4",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/video/upload/so_1/v1772298931/Focus_on_Building_muscle_2_z2j84v.jpg",
     year: "2023"
   },
   {
     title: "Abstract Realm",
     category: "VFX",
     url: "https://res.cloudinary.com/dmnqlruhl/video/upload/v1772299348/Extremely_affordable_w5yyj8.mp4",
+    thumbnail: "https://res.cloudinary.com/dmnqlruhl/video/upload/so_1/v1772299348/Extremely_affordable_w5yyj8.jpg",
     year: "2023"
   },
   {

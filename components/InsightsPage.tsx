@@ -69,39 +69,39 @@ const InsightsPage: React.FC = () => {
     ];
 
     return (
-        <div className="bg-transparent min-h-screen pt-28 pb-[20vh] relative z-10 selection:bg-accent-red selection:text-white">
+        <div className="bg-transparent min-h-screen pt-24 sm:pt-28 pb-12 sm:pb-16 md:pb-20 relative z-10 selection:bg-accent-red selection:text-white">
             
             {/* Header */}
-            <div className="container mx-auto px-6 md:px-12 mb-16 md:mb-24">
-                 <div className="flex flex-col gap-2 mb-12 animate-on-scroll">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-12 sm:mb-16 md:mb-24">
+                 <div className="flex flex-col gap-2 mb-8 sm:mb-12 animate-on-scroll">
                     <span className="font-mono text-xs text-accent-red uppercase tracking-[0.2em]">
                         Journal — 003
                     </span>
-                    <h1 className="font-display font-black text-6xl md:text-[8vw] leading-[0.85] text-white uppercase tracking-tighter">
+                    <h1 className="font-display font-black text-5xl sm:text-6xl md:text-[8vw] leading-[0.85] text-white uppercase tracking-tighter">
                         Perspectives
                     </h1>
                 </div>
                 <div className="w-full h-[1px] bg-white/20"></div>
-                <p className="mt-8 font-sans text-white/50 max-w-lg leading-relaxed">
+                <p className="mt-6 sm:mt-8 font-sans text-sm sm:text-base text-white/50 max-w-lg leading-relaxed">
                     Thoughts on design systems, motion theory, and the evolving landscape of digital creation.
                 </p>
             </div>
 
             {/* Content List */}
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12">
                 <div className="flex flex-col">
                     {/* List Header */}
-                    <div className="grid grid-cols-12 border-b border-white/10 pb-4 mb-4 text-white/30 font-mono text-[10px] uppercase tracking-widest px-2">
+                    <div className="grid grid-cols-12 border-b border-white/10 pb-3 sm:pb-4 mb-3 sm:mb-4 text-white/30 font-mono text-[9px] sm:text-[10px] uppercase tracking-widest px-2">
                         <div className="col-span-2 hidden md:block">Date</div>
                         <div className="col-span-2 hidden md:block">Category</div>
-                        <div className="col-span-10 md:col-span-6">Topic</div>
-                        <div className="col-span-2 md:col-span-2 text-right">Read Time</div>
+                        <div className="col-span-8 sm:col-span-9 md:col-span-6">Topic</div>
+                        <div className="col-span-4 sm:col-span-3 md:col-span-2 text-right">Read Time</div>
                     </div>
 
                     {articles.map((article, idx) => (
                         <div
                             key={article.id}
-                            className="group grid grid-cols-12 py-8 md:py-12 border-b border-white/10 items-center hover:bg-white/5 transition-colors px-4 -mx-4 relative cursor-pointer animate-on-scroll"
+                            className="group grid grid-cols-12 py-6 sm:py-8 md:py-12 border-b border-white/10 items-center hover:bg-white/5 transition-colors px-2 sm:px-4 -mx-2 sm:-mx-4 relative cursor-pointer animate-on-scroll"
                             style={{ transitionDelay: `${idx * 100}ms` }}
                             onMouseEnter={() => setHoveredArticle(article.id)}
                             onMouseLeave={() => setHoveredArticle(null)}
@@ -112,17 +112,17 @@ const InsightsPage: React.FC = () => {
                             <div className="col-span-2 hidden md:block font-mono text-xs text-accent-red uppercase tracking-widest">
                                 {article.category}
                             </div>
-                            <div className="col-span-10 md:col-span-6">
-                                <h3 className="font-display font-bold text-2xl md:text-5xl text-white group-hover:translate-x-4 transition-transform duration-300">
+                            <div className="col-span-8 sm:col-span-9 md:col-span-6">
+                                <h3 className="font-display font-bold text-lg sm:text-2xl md:text-5xl text-white group-hover:translate-x-2 md:group-hover:translate-x-4 transition-transform duration-300">
                                     {article.title}
                                 </h3>
                                 {/* Mobile Meta */}
-                                <div className="md:hidden mt-2 font-mono text-[10px] text-white/40 uppercase tracking-widest flex gap-4">
-                                    <span className="text-accent-red">{article.category}</span>
+                                <div className="md:hidden mt-2 font-mono text-[9px] sm:text-[10px] text-white/40 uppercase tracking-widest flex gap-3">
+                                    <span className="text-accent-red font-bold">{article.category}</span>
                                     <span>{article.date}</span>
                                 </div>
                             </div>
-                            <div className="col-span-2 md:col-span-2 text-right font-mono text-[10px] md:text-xs text-white/40 uppercase tracking-widest">
+                            <div className="col-span-4 sm:col-span-3 md:col-span-2 text-right font-mono text-[9px] sm:text-[10px] md:text-xs text-white/40 uppercase tracking-widest">
                                 {article.readTime}
                             </div>
                             
@@ -163,12 +163,12 @@ const InsightsPage: React.FC = () => {
             </div>
 
             {/* Footer Note */}
-            <div className="container mx-auto px-6 md:px-12 mt-32">
-                <div className="p-8 border border-white/10 rounded-xl bg-[#0f0f0f] flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="font-sans text-white/60 text-center md:text-left">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 mt-20 sm:mt-32">
+                <div className="p-5 sm:p-8 border border-white/10 rounded-xl bg-[#0f0f0f] flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
+                    <p className="font-sans text-sm sm:text-base text-white/60 text-center md:text-left">
                         Want to read more about my design philosophy?
                     </p>
-                    <a href="https://linkedin.com/in/eddarrazy" target="_blank" rel="noreferrer" className="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-accent-red hover:text-white transition-all">
+                    <a href="https://linkedin.com/in/eddarrazy" target="_blank" rel="noreferrer" className="bg-white text-black px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-accent-red hover:text-white transition-all">
                         Follow on LinkedIn
                     </a>
                 </div>

@@ -34,6 +34,10 @@ html.light {
 @layer base {
   html {
     transition: background-color 0.4s ease, color 0.4s ease;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   html,
@@ -45,6 +49,7 @@ html.light {
     width: 100%;
     margin: 0;
     padding: 0;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -217,5 +222,17 @@ html.light .text-stroke {
   width: max-content !important;
   animation: marqueeSlide 30s linear infinite !important;
   will-change: transform;
+}
+
+/* Hide scrollbars for mobile filter swipers while preserving scrollability */
+.scrollbar-hide::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide,
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 

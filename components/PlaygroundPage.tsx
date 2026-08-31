@@ -77,32 +77,32 @@ const PlaygroundPage: React.FC = () => {
     ];
 
     return (
-        <div className="bg-transparent min-h-screen pt-28 pb-[20vh] relative z-10 selection:bg-accent-red selection:text-white">
+        <div className="bg-transparent min-h-screen pt-24 sm:pt-28 pb-12 sm:pb-16 md:pb-20 relative z-10 selection:bg-accent-red selection:text-white">
             
             {/* Header */}
-            <div className="container mx-auto px-6 md:px-12 mb-16 md:mb-24">
-                 <div className="flex flex-col gap-2 mb-12 animate-on-scroll">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-12 sm:mb-16 md:mb-24">
+                 <div className="flex flex-col gap-2 mb-8 sm:mb-12 animate-on-scroll">
                     <span className="font-mono text-xs text-accent-red uppercase tracking-[0.2em]">
                         Experiments — 000
                     </span>
-                    <h1 className="font-display font-black text-6xl md:text-[8vw] leading-[0.85] text-white uppercase tracking-tighter">
+                    <h1 className="font-display font-black text-5xl sm:text-6xl md:text-[8vw] leading-[0.85] text-white uppercase tracking-tighter">
                         The Lab
                     </h1>
                 </div>
                 <div className="w-full h-[1px] bg-white/20"></div>
-                <p className="mt-8 font-sans text-white/50 max-w-lg leading-relaxed">
+                <p className="mt-6 sm:mt-8 font-sans text-sm sm:text-base text-white/50 max-w-lg leading-relaxed">
                     A collection of digital sketches, motion dailies, and code experiments. 
                     Unpolished, raw, and purely for the joy of creation.
                 </p>
             </div>
 
             {/* Masonry-ish Grid */}
-            <div className="container mx-auto px-6 md:px-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[300px]">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[240px] sm:auto-rows-[280px] md:auto-rows-[300px]">
                     {experiments.map((item, index) => (
                         <div 
                             key={index} 
-                            className={`group relative bg-[#0f0f0f] border border-white/5 overflow-hidden hover:border-white/20 transition-all duration-300 ${item.grid} animate-on-scroll`}
+                            className={`group relative bg-[#0f0f0f] border border-white/5 overflow-hidden hover:border-white/20 transition-all duration-300 rounded-xl md:rounded-none ${item.grid} animate-on-scroll`}
                             style={{ transitionDelay: `${index * 100}ms` }}
                         >
                             {/* Media */}
@@ -127,19 +127,19 @@ const PlaygroundPage: React.FC = () => {
                             </div>
 
                             {/* Overlay Info */}
-                            <div className="absolute inset-0 p-6 flex flex-col justify-between bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-between bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300">
                                 <div className="flex justify-between items-start">
-                                    <span className="font-mono text-[10px] uppercase tracking-widest text-accent-red border border-accent-red/30 px-2 py-1 rounded bg-black/50 backdrop-blur-sm">
+                                    <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-accent-red border border-accent-red/30 px-2 py-1 rounded bg-black/50 backdrop-blur-sm">
                                         {item.id}
                                     </span>
-                                    <ArrowUpRight className="text-white transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300" size={20} />
+                                    <ArrowUpRight className="text-white transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300" size={18} />
                                 </div>
                                 
                                 <div>
-                                    <span className="font-mono text-[10px] text-white/50 uppercase tracking-widest mb-1 block">
+                                    <span className="font-mono text-[9px] sm:text-[10px] text-white/50 uppercase tracking-widest mb-1 block">
                                         {item.type} — {item.date}
                                     </span>
-                                    <h3 className="font-display font-bold text-2xl text-white leading-none">
+                                    <h3 className="font-display font-bold text-xl sm:text-2xl text-white leading-none">
                                         {item.title}
                                     </h3>
                                 </div>
@@ -147,8 +147,8 @@ const PlaygroundPage: React.FC = () => {
                             
                             {/* Mobile Play Indicator */}
                             {item.video && (
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
-                                    <PlayCircle className="text-white/50" size={48} />
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden pointer-events-none">
+                                    <PlayCircle className="text-white/40" size={40} />
                                 </div>
                             )}
 
@@ -158,7 +158,7 @@ const PlaygroundPage: React.FC = () => {
             </div>
 
             {/* Footer Note */}
-            <div className="container mx-auto px-6 md:px-12 mt-24 text-center">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 mt-16 sm:mt-24 text-center">
                 <p className="font-mono text-xs text-white/30 uppercase tracking-widest">
                     // End of Experiments Log
                 </p>

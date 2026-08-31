@@ -68,7 +68,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
   };
 
   return (
-    <div className="bg-transparent min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-red selection:text-white">
+    <div className="bg-transparent min-h-screen pt-24 sm:pt-28 pb-12 sm:pb-16 md:pb-20 relative z-10 selection:bg-accent-red selection:text-white">
       
       {/* =========================================================================
           PROJECT DETAIL OVERLAY
@@ -250,48 +250,48 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
       )}
 
       {/* 2. Header Section */}
-      <div className="container mx-auto px-6 md:px-12 mb-12">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-12">
         
         {/* Title */}
-        <div className="flex flex-col gap-2 mb-16 animate-on-scroll">
+        <div className="flex flex-col gap-2 mb-10 sm:mb-16 animate-on-scroll">
             <span className="font-mono text-xs text-accent-red uppercase tracking-[0.2em]">
                 Index — 001
             </span>
-            <h1 className="font-display font-black text-6xl md:text-[7vw] leading-[0.85] text-white uppercase tracking-tighter">
+            <h1 className="font-display font-black text-5xl sm:text-6xl md:text-[7vw] leading-[0.85] text-white uppercase tracking-tighter">
                 Visual <br/> Archive
             </h1>
             
             {/* Portfolio statistics counters */}
-            <div className="flex flex-wrap gap-8 md:gap-16 mt-8 font-mono text-xs text-white/50 border-l border-accent-red/40 pl-6">
+            <div className="flex flex-wrap gap-5 sm:gap-8 md:gap-16 mt-6 md:mt-8 font-mono text-xs text-white/50 border-l border-accent-red/40 pl-4 sm:pl-6">
                 <div>
-                    <span className="block text-white font-display font-bold text-2xl">15+</span>
+                    <span className="block text-white font-display font-bold text-xl sm:text-2xl">15+</span>
                     <span className="uppercase text-[9px] tracking-widest text-white/30">Total Works</span>
                 </div>
                 <div>
-                    <span className="block text-white font-display font-bold text-2xl">06+</span>
+                    <span className="block text-white font-display font-bold text-xl sm:text-2xl">06+</span>
                     <span className="uppercase text-[9px] tracking-widest text-white/30">Web & AI Solutions</span>
                 </div>
                 <div>
-                    <span className="block text-white font-display font-bold text-2xl">08+</span>
+                    <span className="block text-white font-display font-bold text-xl sm:text-2xl">08+</span>
                     <span className="uppercase text-[9px] tracking-widest text-white/30">Cinematic & Reels</span>
                 </div>
             </div>
         </div>
 
         {/* Sticky Toolbar */}
-        <div className="w-full sticky top-24 z-30 animate-on-scroll delay-100">
-             <div className="absolute inset-0 bg-cinema-black/80 backdrop-blur-md border-t border-b border-white/10"></div>
-             <div className="relative flex flex-col md:flex-row justify-between items-start md:items-center py-4 gap-4">
+        <div className="w-full sticky top-20 md:top-24 z-30 animate-on-scroll delay-100">
+             <div className="absolute inset-0 bg-cinema-black/90 backdrop-blur-md border-t border-b border-white/10"></div>
+             <div className="relative flex flex-col md:flex-row justify-between items-start md:items-center py-3 sm:py-4 gap-3 sm:gap-4">
                  
                  {/* Left: Filters */}
-                 <div className="flex flex-wrap gap-x-6 gap-y-2">
+                 <div className="flex flex-wrap gap-x-3.5 sm:gap-x-6 gap-y-2">
                     {categories.map(cat => (
                         <button
                             key={cat}
                             onClick={() => setFilter(cat)}
-                            className={`font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 ${
+                            className={`font-mono text-[9px] sm:text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 ${
                                 filter === cat 
-                                    ? 'text-accent-red' 
+                                    ? 'text-accent-red font-bold' 
                                     : 'text-white/40 hover:text-white'
                             }`}
                         >
@@ -305,25 +305,25 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                      <span className="font-mono text-[10px] text-white/30 uppercase tracking-widest mr-2 hidden md:inline">View</span>
                      <button
                         onClick={() => setViewMode('grid')}
-                        className={`p-2 rounded-md transition-all duration-300 border border-transparent ${
+                        className={`p-1.5 sm:p-2 rounded-md transition-all duration-300 border border-transparent ${
                             viewMode === 'grid' 
                                 ? 'bg-white text-black' 
                                 : 'text-white/40 hover:text-white hover:border-white/20'
                         }`}
                         aria-label="Grid View"
                      >
-                         <LayoutGrid size={16} />
+                         <LayoutGrid size={15} />
                      </button>
                      <button
                         onClick={() => setViewMode('list')}
-                        className={`p-2 rounded-md transition-all duration-300 border border-transparent ${
+                        className={`p-1.5 sm:p-2 rounded-md transition-all duration-300 border border-transparent ${
                             viewMode === 'list' 
                                 ? 'bg-white text-black' 
                                 : 'text-white/40 hover:text-white hover:border-white/20'
                         }`}
                         aria-label="List View"
                      >
-                         <List size={16} />
+                         <List size={15} />
                      </button>
                  </div>
              </div>
@@ -331,16 +331,16 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
       </div>
 
       {/* 3. Content Area */}
-      <div className="container mx-auto px-6 md:px-12 min-h-[50vh] animate-on-scroll delay-200">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 min-h-[50vh] animate-on-scroll delay-200">
           
           {/* A. GRID VIEW */}
           {viewMode === 'grid' && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   {filteredProjects.map((project, idx) => (
                       <div 
                         key={`${project.title}-${idx}`}
                         onClick={() => handleProjectClick(project)}
-                        className="group relative aspect-video md:aspect-[16/10] overflow-hidden bg-white/5 cursor-pointer block"
+                        className="group relative aspect-video md:aspect-[16/10] rounded-xl sm:rounded-none overflow-hidden bg-white/5 cursor-pointer block border border-white/5 md:border-0"
                         onMouseEnter={() => setHoveredProject(project.title)}
                         onMouseLeave={() => setHoveredProject(null)}
                       >
@@ -349,24 +349,42 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                                {project.isWeb ? (
                                   <img 
                                     src={project.thumbnail || project.url} 
-                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" 
+                                    className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-500 opacity-90 md:opacity-80 md:group-hover:opacity-100" 
                                     alt={project.title}
                                   />
                                ) : (
                                   <video 
                                     src={project.url} 
+                                    poster={project.thumbnail || (project.url && project.url.includes('cloudinary.com') ? project.url.replace(/\.[^/.]+$/, '.jpg') : undefined)}
+                                    preload="metadata"
                                     loop 
                                     muted 
                                     playsInline 
-                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" 
-                                    onMouseOver={e => e.currentTarget.play()} 
-                                    onMouseOut={e => e.currentTarget.pause()} 
+                                    className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-500 opacity-90 md:opacity-80 md:group-hover:opacity-100" 
+                                    onMouseEnter={e => {
+                                      const p = e.currentTarget.play();
+                                      if (p !== undefined) p.catch(() => {});
+                                    }} 
+                                    onMouseLeave={e => {
+                                      e.currentTarget.pause();
+                                      e.currentTarget.currentTime = 0;
+                                    }} 
                                   />
                                )}
                           </div>
 
-                          {/* Hover Overlay */}
-                          <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-8 text-center backdrop-blur-sm">
+                          {/* Mobile Always-Visible Footer Card Gradient */}
+                          <div className="md:hidden absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex flex-col justify-end pointer-events-none">
+                              <span className="font-mono text-[9px] text-accent-red uppercase tracking-widest font-bold">
+                                  {project.category} — {project.year || '2024'}
+                              </span>
+                              <h3 className="font-display font-bold text-lg sm:text-xl text-white uppercase leading-tight mt-0.5">
+                                  {project.title}
+                              </h3>
+                          </div>
+
+                          {/* Desktop Hover Overlay */}
+                          <div className="hidden md:flex absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col justify-center items-center p-8 text-center backdrop-blur-sm">
                               <span className="font-mono text-accent-red text-xs uppercase tracking-widest mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
                                   {project.category} — {project.year || '2024'}
                               </span>
@@ -389,7 +407,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
           {viewMode === 'list' && (
               <div className="flex flex-col">
                   {/* List Header */}
-                  <div className="grid grid-cols-12 border-b border-white/10 pb-4 mb-4 text-white/30 font-mono text-[10px] uppercase tracking-widest px-2">
+                  <div className="grid grid-cols-12 border-b border-white/10 pb-3 mb-2 text-white/30 font-mono text-[10px] uppercase tracking-widest px-2">
                       <div className="col-span-1 hidden md:block">No.</div>
                       <div className="col-span-2 hidden md:block">Year</div>
                       <div className="col-span-8 md:col-span-6">Project</div>
@@ -400,7 +418,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                       <div
                           key={`${project.title}-${idx}`}
                           onClick={() => handleProjectClick(project)}
-                          className="group grid grid-cols-12 py-8 border-b border-white/10 items-center hover:bg-white/5 transition-colors px-4 -mx-4 relative cursor-pointer"
+                          className="group grid grid-cols-12 py-5 sm:py-6 md:py-8 border-b border-white/10 items-center hover:bg-white/5 transition-colors px-2 sm:px-4 -mx-2 sm:-mx-4 relative cursor-pointer"
                           onMouseEnter={() => setHoveredProject(project.title)}
                           onMouseLeave={() => setHoveredProject(null)}
                       >
@@ -412,7 +430,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                           </div>
                           <div className="col-span-8 md:col-span-6">
                               <h3 
-                                className="font-display font-bold text-3xl md:text-5xl text-white transition-all duration-300 origin-left group-hover:scale-[1.02]"
+                                className="font-display font-bold text-xl sm:text-2xl md:text-5xl text-white transition-all duration-300 origin-left group-hover:scale-[1.02]"
                               >
                                   <span className="block group-hover:hidden">{project.title}</span>
                                   {/* Outline Version on Hover */}
@@ -424,7 +442,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onModalStateChange }) => {
                                   </span>
                               </h3>
                           </div>
-                          <div className="col-span-4 md:col-span-3 text-right font-mono text-[10px] md:text-xs text-white/40 uppercase tracking-widest group-hover:text-white transition-colors">
+                          <div className="col-span-4 md:col-span-3 text-right font-mono text-[9px] sm:text-[10px] md:text-xs text-white/40 uppercase tracking-widest group-hover:text-white transition-colors">
                               {project.category}
                           </div>
                           

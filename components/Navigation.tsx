@@ -55,26 +55,26 @@ const Navigation: React.FC<NavigationProps> = ({ hideMenu = false }) => {
   return (
     <>
       {/* 1. Header (Sticky Top Bar) */}
-      <nav className={`fixed top-0 left-0 right-0 z-[1002] px-6 py-6 md:px-12 md:py-8 flex justify-between items-center pointer-events-none w-full transition-colors duration-300 ${
+      <nav className={`fixed top-0 left-0 right-0 z-[1002] px-4 py-4 sm:px-6 sm:py-6 md:px-12 md:py-8 flex justify-between items-center pointer-events-none w-full transition-colors duration-300 ${
         isLight ? 'text-black' : 'text-white'
       }`}>
         <button 
             onClick={() => handleNavigation('/')}
-            className="pointer-events-auto group relative z-50 flex items-center"
+            className="pointer-events-auto group relative z-50 flex items-center p-1"
             aria-label="Home"
         >
            <AnimatedLogo 
               playOnHover={true} 
-              className={`w-10 h-10 md:w-12 md:h-12 group-hover:text-accent-red transition-all duration-300 transform group-hover:scale-105 ${
+              className={`w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 group-hover:text-accent-red transition-all duration-300 transform group-hover:scale-105 ${
                 isLight ? 'text-black' : 'text-white'
               }`} 
            />
         </button>
         
-        <div className="flex items-center gap-3 md:gap-5">
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-5">
           <button
               onClick={toggleTheme}
-              className={`pointer-events-auto flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full border transition-all duration-300 ease-out z-50 ${
+              className={`pointer-events-auto flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full border transition-all duration-300 ease-out z-50 ${
                 isLight 
                   ? 'border-black/20 bg-black/5 text-black hover:border-black hover:bg-black/10' 
                   : 'border-white/20 bg-white/5 text-white hover:border-white hover:bg-white/10'
@@ -86,7 +86,7 @@ const Navigation: React.FC<NavigationProps> = ({ hideMenu = false }) => {
               title={isLight ? "Switch to Dark Mode" : "Switch to Light Mode"}
               aria-label="Toggle Theme"
           >
-              {isLight ? <Moon size={19} className="text-black" /> : <Sun size={19} className="text-white" />}
+              {isLight ? <Moon size={18} className="text-black" /> : <Sun size={18} className="text-white" />}
           </button>
           
           <button 
@@ -95,7 +95,7 @@ const Navigation: React.FC<NavigationProps> = ({ hideMenu = false }) => {
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{ transform: `translate(${buttonPos.x}px, ${buttonPos.y}px)` }}
-              className={`pointer-events-auto group flex items-center gap-3 md:gap-4 z-50 transition-all duration-300 ease-out ${
+              className={`pointer-events-auto group flex items-center gap-2 sm:gap-3 md:gap-4 z-50 transition-all duration-300 ease-out ${
                   hideMenu || isOpen
                   ? 'opacity-0 invisible pointer-events-none' 
                   : 'opacity-100 visible pointer-events-auto'
@@ -107,12 +107,12 @@ const Navigation: React.FC<NavigationProps> = ({ hideMenu = false }) => {
               }`}>
                   Menu
               </span>
-              <div className={`w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-500 group-hover:bg-accent-red group-hover:text-white ${
+              <div className={`w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-500 group-hover:bg-accent-red group-hover:text-white ${
                 isLight 
                   ? 'bg-black text-white shadow-[0_4px_16px_rgba(0,0,0,0.15)]' 
                   : 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.25)]'
               }`}>
-                  <Menu size={20} strokeWidth={2.5} />
+                  <Menu size={18} strokeWidth={2.5} />
               </div>
           </button>
         </div>
@@ -126,19 +126,19 @@ const Navigation: React.FC<NavigationProps> = ({ hideMenu = false }) => {
             isOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <div className="h-full w-full flex flex-col pt-6 md:pt-12 px-6 md:px-12">
+        <div className="h-full w-full flex flex-col justify-between pt-4 sm:pt-6 md:pt-12 px-5 sm:px-6 md:px-12 pb-6 sm:pb-8 overflow-y-auto">
             
             {/* Top Bar for Close button inside Modal */}
             <div className="flex justify-between items-center w-full min-h-[48px]">
                {/* Left logo to align with header */}
                <button 
                     onClick={() => handleNavigation('/')}
-                    className="group flex items-center"
+                    className="group flex items-center p-1"
                     aria-label="Home"
                >
                    <AnimatedLogo 
                       playOnHover={true} 
-                      className={`w-10 h-10 group-hover:text-accent-red transition-colors ${
+                      className={`w-9 h-9 sm:w-10 sm:h-10 group-hover:text-accent-red transition-colors ${
                         isLight ? 'text-black' : 'text-white'
                       }`} 
                    />
@@ -146,32 +146,31 @@ const Navigation: React.FC<NavigationProps> = ({ hideMenu = false }) => {
                
                <button 
                     onClick={() => setIsOpen(false)}
-                    className={`group flex items-center gap-3 transition-colors hover:text-accent-red ${
-                      isLight ? 'text-black' : 'text-white'
-                    }`}
+                    className={`group flex items-center gap-2 sm:gap-3 transition-colors hover:text-accent-red p-1`}
+                    aria-label="Close Menu"
                >
                    <span className="font-mono text-xs uppercase tracking-widest hidden md:block group-hover:-translate-x-2 transition-transform">Close</span>
-                   <div className={`w-12 h-12 rounded-full border group-hover:border-accent-red flex items-center justify-center transition-colors ${
+                   <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full border group-hover:border-accent-red flex items-center justify-center transition-colors ${
                      isLight ? 'border-black/20 group-hover:bg-accent-red group-hover:text-white' : 'border-white/20'
                    }`}>
-                       <X size={20} />
+                       <X size={18} />
                    </div>
                </button>
             </div>
 
             {/* Central Navigation Links */}
-            <div className="flex-1 flex flex-col justify-center items-center w-full">
-                <ul className="flex flex-col items-center gap-6 md:gap-8 w-full">
+            <div className="flex-1 flex flex-col justify-center items-center w-full my-6 sm:my-8">
+                <ul className="flex flex-col items-center gap-5 sm:gap-6 md:gap-8 w-full">
                     {navItems.map((item, index) => {
                         const isActive = location.pathname === item.href;
                         return (
                             <li key={item.label} className="overflow-hidden">
                                 <button 
                                     onClick={() => handleNavigation(item.href)}
-                                    className={`group flex items-center justify-center transition-transform duration-[800ms] cubic-bezier(0.76, 0, 0.24, 1) ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}
+                                    className={`group flex items-center justify-center transition-transform duration-[800ms] cubic-bezier(0.76, 0, 0.24, 1) py-1 ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}
                                     style={{ transitionDelay: `${index * 50 + 200}ms` }}
                                 >
-                                    <span className={`font-display font-medium text-4xl md:text-6xl tracking-tight transition-colors duration-300 ${
+                                    <span className={`font-display font-medium text-3xl sm:text-4xl md:text-6xl tracking-tight transition-colors duration-300 ${
                                         isActive 
                                           ? 'text-accent-red' 
                                           : isLight 
@@ -188,20 +187,20 @@ const Navigation: React.FC<NavigationProps> = ({ hideMenu = false }) => {
             </div>
 
             {/* Bottom Footer Info */}
-            <div className={`flex flex-col md:flex-row justify-between items-center w-full border-t pb-8 pt-6 gap-6 md:gap-0 transition-opacity duration-1000 delay-500 ${
+            <div className={`flex flex-col md:flex-row justify-between items-center w-full border-t pb-2 sm:pb-4 pt-4 sm:pt-6 gap-4 sm:gap-6 md:gap-0 transition-opacity duration-1000 delay-500 ${
               isLight ? 'border-black/10' : 'border-white/10'
             } ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
-                <div className="flex flex-col items-center md:items-start gap-1">
+                <div className="flex flex-col items-center md:items-start gap-1 text-center md:text-left">
                     <span className={`font-mono text-[10px] uppercase tracking-widest ${
                       isLight ? 'text-black/40' : 'text-white/40'
                     }`}>Get in touch</span>
-                    <a href="mailto:Mostafadrazy@gmail.com" className={`font-display font-bold text-lg md:text-xl hover:text-accent-red transition-colors ${
+                    <a href="mailto:Mostafadrazy@gmail.com" className={`font-display font-bold text-base sm:text-lg md:text-xl break-all hover:text-accent-red transition-colors ${
                       isLight ? 'text-black' : 'text-white'
                     }`}>
                         Mostafadrazy@gmail.com
                     </a>
                 </div>
-                <div className="flex gap-8">
+                <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
                     {['LinkedIn', 'Behance', 'Instagram'].map((social) => (
                         <a key={social} href="#" className={`font-sans text-xs md:text-sm uppercase tracking-wider transition-colors ${
                           isLight ? 'text-black/60 hover:text-black' : 'text-white/60 hover:text-white'

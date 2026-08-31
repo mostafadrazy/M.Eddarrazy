@@ -1,11 +1,163 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { VIDEOS, slugify } from '../constants';
-import { ArrowUpRight, Maximize2, X } from 'lucide-react';
+import { ArrowUpRight, Maximize2, X, Play } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 interface WorkProps {
     onModalStateChange?: (isOpen: boolean) => void;
 }
+
+interface WorkCardProps {
+  project: any;
+  index: number;
+  total: number;
+  handleProjectClick: (project: any) => void;
+  toggleFullscreen: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const WorkCard: React.FC<WorkCardProps> = ({
+  project,
+  index,
+  total,
+  handleProjectClick,
+  toggleFullscreen,
+}) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const isLandscape = project.isWeb;
+  const isVideo = !isLandscape;
+  const posterUrl = project.thumbnail || (project.url && project.url.includes('cloudinary.com') ? project.url.replace(/\.[^/.]+$/, '.jpg') : undefined);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch(() => {
+            // Prevent uncaught play errors if unhovered quickly
+          });
+      }
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      setIsPlaying(false);
+    }
+  };
+
+  return (
+    <div 
+      className="sticky top-20 md:top-24 flex flex-col md:grid md:grid-cols-12 gap-5 sm:gap-6 md:gap-12 p-5 sm:p-6 md:p-12 rounded-[1.25rem] sm:rounded-[1.5rem] md:rounded-[2rem] border border-white/10 shadow-2xl transition-transform duration-500 origin-top bg-[#0f0f0f] animate-on-scroll group/card"
+      style={{
+        zIndex: index + 1,
+        marginBottom: `${(total - index) * 20}px`
+      }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Left: Content */}
+      <div className="md:col-span-5 flex flex-col justify-between order-2 md:order-1 py-2 md:py-4">
+        <div>
+          <div className="flex items-center gap-3 sm:gap-4 mb-4 md:mb-6">
+            <span className="font-sans text-[9px] md:text-xs font-bold uppercase tracking-widest text-accent-red border border-accent-red/30 px-2 py-1 md:px-3 rounded-full">
+              0{index + 1}
+            </span>
+            <span className="w-6 sm:w-8 md:w-12 h-[1px] bg-white/20"></span>
+            <span className="font-sans text-[9px] md:text-xs uppercase tracking-widest text-white/40">
+              {project.category}
+            </span>
+          </div>
+          
+          <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-6xl mb-3 md:mb-6 leading-[1.0] text-white">
+            {project.title}
+          </h3>
+          
+          <p className="font-sans text-xs sm:text-sm md:text-base text-white/60 leading-relaxed max-w-sm">
+            {isLandscape 
+              ? "Strategic brand identity and digital design that cuts through the noise." 
+              : "Cinematic visual storytelling crafted for maximum engagement and brand impact."}
+          </p>
+        </div>
+        
+        <div className="mt-5 md:mt-0">
+          <button 
+            onClick={() => handleProjectClick(project)}
+            className="group inline-flex items-center gap-3 font-sans text-xs md:text-sm font-bold uppercase tracking-wider text-white hover:text-accent-red transition-colors"
+          >
+            <span className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent-red group-hover:border-accent-red group-hover:text-black transition-all">
+              <ArrowUpRight size={15} />
+            </span>
+            Open Project
+          </button>
+        </div>
+      </div>
+
+      {/* Right: Media Container */}
+      <div className="md:col-span-7 order-1 md:order-2 flex items-center justify-center md:justify-end md:h-[60vh] mt-2 md:mt-0">
+        <div 
+          className={`relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-black group transition-all duration-500 ${
+            isLandscape 
+              ? 'aspect-video w-full h-auto' 
+              : 'aspect-[9/16] w-[65%] sm:w-[55%] md:w-auto md:h-full mx-auto max-h-[380px] md:max-h-none'
+          }`}
+        >
+          {project.isWeb ? (
+            <img 
+              src={project.thumbnail || project.url} 
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : (
+            <div className="w-full h-full relative">
+              <video 
+                ref={videoRef}
+                src={project.url} 
+                poster={posterUrl}
+                preload="metadata"
+                muted 
+                loop 
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {/* Hover to Play Indicator Badge */}
+              <div 
+                className={`absolute top-3 left-3 md:top-4 md:left-4 z-20 pointer-events-none transition-all duration-300 ${
+                  isPlaying ? 'opacity-0 scale-95' : 'opacity-90 scale-100'
+                }`}
+              >
+                <div className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/15 text-white font-mono text-[9px] uppercase tracking-wider">
+                  <Play size={10} className="text-accent-red fill-accent-red" />
+                  <span className="hidden sm:inline">Hover to Play</span>
+                  <span className="sm:hidden">Preview</span>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          {/* Overlay Effect */}
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+          
+          {/* Fullscreen Button for Video */}
+          {isVideo && (
+            <button 
+              onClick={toggleFullscreen}
+              className="absolute bottom-3 right-3 md:bottom-6 md:right-6 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 md:translate-y-2 md:group-hover:translate-y-0 hover:bg-accent-red hover:scale-110 pointer-events-auto z-20"
+              aria-label="Fullscreen"
+            >
+              <Maximize2 size={16} className="text-white" />
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
   // Combined projects - manually curated for Home Page
@@ -252,11 +404,11 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
           </div>
       )}
 
-      <div className="container mx-auto px-4 md:px-12">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Header */}
         <div className="mb-12 md:mb-32 animate-on-scroll">
-            <h2 className="font-display font-black text-4xl md:text-8xl text-white leading-none mb-4 md:mb-6">
+            <h2 className="font-display font-black text-4xl sm:text-6xl md:text-8xl text-white leading-none mb-4 md:mb-6">
                 SELECTED <br/> <span className="text-accent-red">WORKS</span>
             </h2>
             <div className="w-full h-[1px] bg-white/20"></div>
@@ -264,113 +416,29 @@ const Work: React.FC<WorkProps> = ({ onModalStateChange }) => {
 
         {/* Stacking Cards */}
         <div className="flex flex-col gap-6 md:gap-0">
-            {projects.map((project, index) => {
-                const isLandscape = project.isWeb;
-                const isVideo = !isLandscape;
-                
-                return (
-                    <div 
-                        key={index} 
-                        className="sticky top-20 md:top-24 flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-12 p-5 md:p-12 rounded-[1.5rem] md:rounded-[2rem] border border-white/10 shadow-2xl transition-transform duration-500 origin-top bg-[#0f0f0f] animate-on-scroll"
-                        style={{
-                            zIndex: index + 1,
-                            marginBottom: `${(projects.length - index) * 20}px` // Reduced spacing for mobile stack
-                        }}
-                    >
-                        {/* Left: Content */}
-                        <div className="md:col-span-5 flex flex-col justify-between order-2 md:order-1 py-2 md:py-4">
-                            <div>
-                                <div className="flex items-center gap-4 mb-4 md:mb-6">
-                                    <span className="font-sans text-[9px] md:text-xs font-bold uppercase tracking-widest text-accent-red border border-accent-red/30 px-2 py-1 md:px-3 rounded-full">
-                                        0{index + 1}
-                                    </span>
-                                    <span className="w-8 md:w-12 h-[1px] bg-white/20"></span>
-                                    <span className="font-sans text-[9px] md:text-xs uppercase tracking-widest text-white/40">
-                                        {project.category}
-                                    </span>
-                                </div>
-                                
-                                <h3 className="font-display font-bold text-2xl md:text-6xl mb-4 md:mb-6 leading-[1.0] text-white">
-                                    {project.title}
-                                </h3>
-                                
-                                <p className="font-sans text-sm md:text-base text-white/60 leading-relaxed max-w-sm">
-                                    {isLandscape 
-                                        ? "Strategic brand identity and digital design that cuts through the noise." 
-                                        : "Cinematic visual storytelling crafted for maximum engagement and brand impact."}
-                                </p>
-                            </div>
-                            
-                            <div className="mt-6 md:mt-0">
-                                <button 
-                                    onClick={() => handleProjectClick(project)}
-                                    className="group inline-flex items-center gap-3 font-sans text-xs md:text-sm font-bold uppercase tracking-wider text-white hover:text-accent-red transition-colors"
-                                >
-                                    <span className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent-red group-hover:border-accent-red group-hover:text-black transition-all">
-                                        <ArrowUpRight size={16} />
-                                    </span>
-                                    Open Project
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* Right: Media Container */}
-                        <div className="md:col-span-7 order-1 md:order-2 flex items-center justify-center md:justify-end md:h-[60vh] mt-2 md:mt-0">
-                             <div 
-                                className={`relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-black group transition-all duration-500 ${
-                                    isLandscape 
-                                        ? 'aspect-video w-full h-auto' 
-                                        : 'aspect-[9/16] w-[75%] md:w-auto md:h-full mx-auto'
-                                }`}
-                             >
-                                 {project.isWeb ? (
-                                     <img 
-                                        src={project.thumbnail || project.url} 
-                                        alt={project.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                     />
-                                 ) : (
-                                     <video 
-                                        src={project.url} 
-                                        muted 
-                                        loop 
-                                        playsInline
-                                        autoPlay
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                     />
-                                 )}
-                                 
-                                 {/* Overlay Effect */}
-                                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
-                                 
-                                 {/* Fullscreen Button for Video */}
-                                 {isVideo && (
-                                     <button 
-                                        onClick={toggleFullscreen}
-                                        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 hover:bg-accent-red hover:scale-110 pointer-events-auto z-20"
-                                        aria-label="Fullscreen"
-                                     >
-                                         <Maximize2 size={18} className="text-white" />
-                                     </button>
-                                 )}
-                             </div>
-                        </div>
-                    </div>
-                );
-            })}
+            {projects.map((project, index) => (
+                <WorkCard 
+                    key={index}
+                    project={project}
+                    index={index}
+                    total={projects.length}
+                    handleProjectClick={handleProjectClick}
+                    toggleFullscreen={toggleFullscreen}
+                />
+            ))}
         </div>
 
         {/* See More Projects */}
-        <div className="mt-12 md:mt-24 flex justify-center animate-on-scroll">
+        <div className="mt-10 md:mt-24 flex justify-center animate-on-scroll">
             <Link 
                   to="/work"
-                  className="group relative inline-flex items-center gap-4 bg-[#0f0f0f] border border-white/20 px-8 py-4 rounded-full overflow-hidden hover:border-accent-red transition-colors shadow-2xl"
+                  className="group relative inline-flex items-center gap-3 sm:gap-4 bg-[#0f0f0f] border border-white/20 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full overflow-hidden hover:border-accent-red transition-colors shadow-2xl"
              >
-                 <span className="relative z-10 font-sans font-bold text-sm md:text-base uppercase tracking-wider text-white group-hover:text-black transition-colors duration-300">
+                 <span className="relative z-10 font-sans font-bold text-xs sm:text-sm md:text-base uppercase tracking-wider text-white group-hover:text-black transition-colors duration-300">
                      Explore All Work
                  </span>
-                 <div className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-black text-white group-hover:text-accent-red transition-colors duration-300">
-                     <ArrowUpRight size={16} />
+                 <div className="relative z-10 w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-black text-white group-hover:text-accent-red transition-colors duration-300">
+                     <ArrowUpRight size={15} />
                  </div>
                  <div className="absolute inset-0 bg-accent-red translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"></div>
              </Link>

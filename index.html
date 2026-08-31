@@ -4,7 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MUSTAPHA EDDARRAZY | DIGITAL CREATOR</title>
+
+    <!-- Favicon & Site Icons (Google Search & Multi-platform Compatible) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#09090b" />
+
     <!-- Primary Meta Tags -->
     <meta name="title" content="MUSTAPHA EDDARRAZY | DIGITAL CREATOR" />
     <meta name="description" content="High-impact portfolio of Mustapha Eddarrazy. Digital Creator, Video Editor, Interface Designer, and Attention Engineer based in Salé. Storytelling meets functional design." />
@@ -29,14 +40,30 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Mustapha Eddarrazy",
-        "url": "https://ais-pre-phmlowm6vmqoa5hzlsq7ze-86321767421.europe-west2.run.app",
-        "image": "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764382689/c02e59e2_Large_dpwia7.png",
-        "jobTitle": "Digital Creator & Video Editor",
-        "knowsAbout": ["Video Editing", "Cinematic Storytelling", "Interface Design", "Sound Engineering", "Front-end Development", "Creative Direction"],
-        "sameAs": [
-          "https://linkedin.com/in/eddarrazy"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://mustaphaeddarrazy.com/#website",
+            "url": "https://mustaphaeddarrazy.com",
+            "name": "MUSTAPHA EDDARRAZY | DIGITAL CREATOR",
+            "description": "Portfolio of Mustapha Eddarrazy - Digital Creator, Video Editor, and Interface Designer.",
+            "publisher": {
+              "@id": "https://mustaphaeddarrazy.com/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://mustaphaeddarrazy.com/#person",
+            "name": "Mustapha Eddarrazy",
+            "url": "https://mustaphaeddarrazy.com",
+            "image": "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764382689/c02e59e2_Large_dpwia7.png",
+            "logo": "https://res.cloudinary.com/dmnqlruhl/image/upload/v1764382689/c02e59e2_Large_dpwia7.png",
+            "jobTitle": "Digital Creator & Video Editor",
+            "knowsAbout": ["Video Editing", "Cinematic Storytelling", "Interface Design", "Sound Engineering", "Front-end Development", "Creative Direction"],
+            "sameAs": [
+              "https://linkedin.com/in/eddarrazy"
+            ]
+          }
         ]
       }
     </script>

@@ -11,7 +11,7 @@ const services = [
         image: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1788121404/Man_typing_on_laptop_202608302118_biiamv.jpg",
         icon: Layout,
         colSpan: "md:col-span-8",
-        aspect: "aspect-[16/9] md:aspect-auto md:min-h-[450px]"
+        aspect: "min-h-[280px] md:aspect-auto md:min-h-[450px]"
     },
     {
         id: "02",
@@ -21,7 +21,7 @@ const services = [
         image: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1788121404/Man_typing_on_laptop_202608302115_vfjsr4.jpg",
         icon: Video,
         colSpan: "md:col-span-4",
-        aspect: "aspect-square md:aspect-auto md:min-h-[450px]"
+        aspect: "min-h-[280px] md:aspect-auto md:min-h-[450px]"
     },
     {
         id: "03",
@@ -31,7 +31,7 @@ const services = [
         image: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1788121404/Person_looking_at_laptop_202608302104_vfxxqi.jpg",
         icon: Sparkles,
         colSpan: "md:col-span-5",
-        aspect: "aspect-square md:aspect-auto md:min-h-[400px]"
+        aspect: "min-h-[280px] md:aspect-auto md:min-h-[400px]"
     },
     {
         id: "04",
@@ -41,7 +41,7 @@ const services = [
         image: "https://res.cloudinary.com/dmnqlruhl/image/upload/v1788121404/Man_typing_on_laptop_202608302107_yliync.jpg",
         icon: Terminal,
         colSpan: "md:col-span-7",
-        aspect: "aspect-[16/9] md:aspect-auto md:min-h-[400px]"
+        aspect: "min-h-[280px] md:aspect-auto md:min-h-[400px]"
     }
 ];
 
@@ -50,15 +50,15 @@ const Services: React.FC = () => {
   const { isLight } = useTheme();
 
   return (
-    <section id="services" className={`bg-transparent py-20 md:py-32 relative z-20 transition-colors duration-300 ${
+    <section id="services" className={`bg-transparent py-16 sm:py-20 md:py-32 relative z-20 transition-colors duration-300 ${
         isLight ? 'text-black' : 'text-white'
     }`}>
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12">
             
             {/* Section Header */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 animate-on-scroll">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 md:mb-24 animate-on-scroll">
                 <div>
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3 mb-3 md:mb-4">
                         <span className="w-2 h-2 rounded-full bg-accent-red"></span>
                         <span className={`font-mono text-[10px] uppercase tracking-widest ${
                             isLight ? 'text-black/50' : 'text-white/40'
@@ -66,11 +66,11 @@ const Services: React.FC = () => {
                             Capabilities
                         </span>
                     </div>
-                    <h2 className="font-display font-black text-4xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter">
+                    <h2 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter">
                         CORE <br/><span className="text-accent-red">EXPERTISE.</span>
                     </h2>
                 </div>
-                <p className={`font-sans text-sm md:text-base font-medium max-w-sm mt-8 md:mt-0 md:text-right leading-relaxed ${
+                <p className={`font-sans text-xs sm:text-sm md:text-base font-medium max-w-sm mt-6 md:mt-0 md:text-right leading-relaxed ${
                     isLight ? 'text-black/70' : 'text-white/70'
                 }`}>
                     A multidisciplinary approach to digital problem solving, blending technical precision with artistic intuition.
@@ -86,7 +86,7 @@ const Services: React.FC = () => {
                     return (
                         <div 
                             key={service.id}
-                            className={`group relative overflow-hidden rounded-[2rem] ${service.colSpan} ${service.aspect} animate-on-scroll flex flex-col transition-all duration-500 ${
+                            className={`group relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] ${service.colSpan} ${service.aspect} animate-on-scroll flex flex-col transition-all duration-500 ${
                                 isLight 
                                     ? 'bg-white border border-black/10 shadow-[0_12px_36px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_48px_rgba(0,0,0,0.12)] hover:border-black/20' 
                                     : 'bg-[#0c0c0c] border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.6)] hover:border-white/25'
@@ -114,16 +114,16 @@ const Services: React.FC = () => {
                             </div>
 
                             {/* Content */}
-                            <div className="relative z-20 flex flex-col justify-between h-full p-6 md:p-8 lg:p-10 pointer-events-none">
+                            <div className="relative z-20 flex flex-col justify-between h-full p-5 sm:p-6 md:p-8 lg:p-10 pointer-events-none">
                                 {/* Top row */}
                                 <div className="flex justify-between items-start">
-                                    <div className={`backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-2 transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ${
+                                    <div className={`backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full flex items-center gap-2 transform md:-translate-y-2 opacity-100 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 ${
                                         isLight 
                                             ? 'bg-black/5 border border-black/10 shadow-sm' 
                                             : 'bg-black/60 border border-white/15'
                                     }`}>
                                         <Icon size={12} className="text-accent-red" />
-                                        <span className={`font-mono text-[10px] uppercase tracking-widest font-semibold ${
+                                        <span className={`font-mono text-[9px] sm:text-[10px] uppercase tracking-widest font-semibold ${
                                             isLight ? 'text-black/80' : 'text-white/90'
                                         }`}>
                                             {service.shortDesc}
@@ -135,15 +135,15 @@ const Services: React.FC = () => {
                                 </div>
 
                                 {/* Bottom row */}
-                                <div>
-                                    <h3 className={`font-display font-black text-2xl lg:text-3xl xl:text-4xl uppercase tracking-tighter mb-3 transition-all duration-500 group-hover:-translate-y-2 ${
+                                <div className="mt-6 md:mt-0">
+                                    <h3 className={`font-display font-black text-2xl lg:text-3xl xl:text-4xl uppercase tracking-tighter mb-2 sm:mb-3 transition-all duration-500 md:group-hover:-translate-y-2 ${
                                         isLight ? 'text-black' : 'text-white'
                                     }`}>
                                         {service.title}
                                     </h3>
                                     
                                     <div className="relative">
-                                        <p className={`font-sans text-sm leading-relaxed max-w-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100 ${
+                                        <p className={`font-sans text-xs sm:text-sm leading-relaxed max-w-sm transform md:translate-y-4 opacity-100 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100 ${
                                             isLight ? 'text-black/80 font-medium' : 'text-white/70'
                                         }`}>
                                             {service.description}
@@ -153,8 +153,8 @@ const Services: React.FC = () => {
                             </div>
                             
                             {/* Hover Reveal Button */}
-                            <div className="absolute top-8 right-8 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-accent-red text-white flex items-center justify-center transform translate-x-12 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-150 shadow-lg">
-                                <ArrowUpRight size={20} />
+                            <div className="absolute top-5 right-5 sm:top-8 sm:right-8 z-20 w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-accent-red text-white flex items-center justify-center transform md:translate-x-12 opacity-100 md:opacity-0 md:group-hover:translate-x-0 md:group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-150 shadow-lg">
+                                <ArrowUpRight size={18} />
                             </div>
                         </div>
                     );

@@ -42,17 +42,17 @@ const ServicesPage: React.FC = () => {
     ];
 
     return (
-        <div className={`bg-transparent min-h-screen pt-28 pb-[20vh] md:pb-[40vh] relative z-10 selection:bg-accent-red selection:text-white transition-colors duration-300 ${
+        <div className={`bg-transparent min-h-screen pt-24 sm:pt-28 pb-12 sm:pb-16 md:pb-20 relative z-10 selection:bg-accent-red selection:text-white transition-colors duration-300 ${
             isLight ? 'text-black' : 'text-white'
         }`}>
             
             {/* Header */}
-            <div className="container mx-auto px-6 md:px-12 mb-20 md:mb-32">
-                 <div className="flex flex-col gap-2 mb-12 animate-on-scroll">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-14 sm:mb-20 md:mb-32">
+                 <div className="flex flex-col gap-2 mb-8 sm:mb-12 animate-on-scroll">
                     <span className="font-mono text-xs text-accent-red uppercase tracking-[0.2em]">
                         Expertise — 003
                     </span>
-                    <h1 className={`font-display font-black text-6xl md:text-[8vw] leading-[0.85] uppercase tracking-tighter ${
+                    <h1 className={`font-display font-black text-5xl sm:text-6xl md:text-[8vw] leading-[0.85] uppercase tracking-tighter ${
                         isLight ? 'text-black' : 'text-white'
                     }`}>
                         Visual <br/> Arsenal
@@ -62,27 +62,27 @@ const ServicesPage: React.FC = () => {
             </div>
 
             {/* Services List */}
-            <div className="container mx-auto px-6 md:px-12 mb-32">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-32">
                 <div className="flex flex-col">
                     {services.map((service, index) => (
-                        <div key={index} className={`group py-12 md:py-20 flex flex-col md:flex-row gap-8 md:gap-12 animate-on-scroll border-b ${
+                        <div key={index} className={`group py-8 sm:py-12 md:py-20 flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 animate-on-scroll border-b ${
                             isLight ? 'border-black/10' : 'border-white/10'
                         }`}>
                             <div className="md:w-1/3">
-                                <span className="font-mono text-accent-red text-xs uppercase tracking-widest mb-4 block">
+                                <span className="font-mono text-accent-red text-xs uppercase tracking-widest mb-2 sm:mb-4 block">
                                     {(index + 1).toString().padStart(2, '0')}
                                 </span>
-                                <h2 className={`font-display font-black text-4xl md:text-5xl uppercase leading-none group-hover:text-accent-red transition-colors duration-300 ${
+                                <h2 className={`font-display font-black text-3xl sm:text-4xl md:text-5xl uppercase leading-tight md:leading-none group-hover:text-accent-red transition-colors duration-300 ${
                                     isLight ? 'text-black' : 'text-white'
                                 }`}>
                                     {service.title}
                                 </h2>
                             </div>
                             
-                            <div className="md:w-2/3 flex flex-col gap-6">
+                            <div className="md:w-2/3 flex flex-col gap-4 sm:gap-6">
                                 <div className="flex flex-wrap gap-2">
                                     {service.tags.map(tag => (
-                                        <span key={tag} className={`px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider ${
+                                        <span key={tag} className={`px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-mono uppercase tracking-wider ${
                                             isLight 
                                                 ? 'border border-black/10 bg-black/5 text-black/70' 
                                                 : 'border border-white/10 text-white/60'
@@ -91,7 +91,7 @@ const ServicesPage: React.FC = () => {
                                         </span>
                                     ))}
                                 </div>
-                                <p className={`font-sans text-lg md:text-xl leading-relaxed max-w-2xl ${
+                                <p className={`font-sans text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl ${
                                     isLight ? 'text-black/75' : 'text-white/80'
                                 }`}>
                                     {service.description}
@@ -103,38 +103,38 @@ const ServicesPage: React.FC = () => {
             </div>
 
             {/* Process Section */}
-            <div className={`py-24 border-y transition-colors duration-300 ${
+            <div className={`py-14 sm:py-24 border-y transition-colors duration-300 ${
                 isLight 
                     ? 'bg-[#f4f4f7] border-black/5' 
                     : 'bg-[#0f0f0f] border-white/5'
             }`}>
-                <div className="container mx-auto px-6 md:px-12">
-                    <div className="flex items-center gap-4 mb-16 animate-on-scroll">
-                         <div className="w-3 h-3 bg-accent-red rounded-full"></div>
-                         <h3 className={`font-mono text-sm uppercase tracking-widest ${
+                <div className="container mx-auto px-4 sm:px-6 md:px-12">
+                    <div className="flex items-center gap-3 sm:gap-4 mb-10 sm:mb-16 animate-on-scroll">
+                         <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-accent-red rounded-full"></div>
+                         <h3 className={`font-mono text-xs sm:text-sm uppercase tracking-widest ${
                              isLight ? 'text-black font-semibold' : 'text-white'
                          }`}>Methodology</h3>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                         {process.map((step, i) => (
-                            <div key={i} className={`relative p-8 border rounded-2xl animate-on-scroll transition-all duration-300 ${
+                            <div key={i} className={`relative p-6 sm:p-8 border rounded-2xl animate-on-scroll transition-all duration-300 ${
                                 isLight 
                                     ? 'border-black/10 bg-white shadow-md hover:border-black/25' 
                                     : 'border-white/5 bg-black/40 hover:bg-white/5'
                             }`} style={{ transitionDelay: `${i * 100}ms` }}>
-                                <span className={`absolute top-8 right-8 font-display font-black text-6xl select-none pointer-events-none ${
+                                <span className={`absolute top-6 right-6 sm:top-8 sm:right-8 font-display font-black text-5xl sm:text-6xl select-none pointer-events-none ${
                                     isLight ? 'text-black/5' : 'text-white/5'
                                 }`}>
                                     {step.step}
                                 </span>
-                                <div className="mb-6 text-accent-red">
-                                    <ArrowDown size={24} />
+                                <div className="mb-4 sm:mb-6 text-accent-red">
+                                    <ArrowDown size={20} className="sm:w-6 sm:h-6" />
                                 </div>
-                                <h4 className={`font-display font-bold text-xl mb-4 uppercase ${
+                                <h4 className={`font-display font-bold text-lg sm:text-xl mb-3 sm:mb-4 uppercase ${
                                     isLight ? 'text-black' : 'text-white'
                                 }`}>{step.title}</h4>
-                                <p className={`font-sans text-sm leading-relaxed ${
+                                <p className={`font-sans text-xs sm:text-sm leading-relaxed ${
                                     isLight ? 'text-black/60' : 'text-white/50'
                                 }`}>
                                     {step.text}
@@ -146,13 +146,13 @@ const ServicesPage: React.FC = () => {
             </div>
 
             {/* AI Integrations Section */}
-            <div className={`container mx-auto px-6 md:px-12 mt-32 border-t pt-20 animate-on-scroll ${
+            <div className={`container mx-auto px-4 sm:px-6 md:px-12 mt-16 sm:mt-24 md:mt-32 border-t pt-12 sm:pt-20 animate-on-scroll ${
                 isLight ? 'border-black/10' : 'border-white/10'
             }`}>
-                 <span className="font-mono text-xs text-accent-red uppercase tracking-[0.2em] mb-4 block">
+                 <span className="font-mono text-xs text-accent-red uppercase tracking-[0.2em] mb-3 sm:mb-4 block">
                      AI & Automation Systems
                  </span>
-                 <h2 className={`font-display font-black text-4xl md:text-6xl uppercase tracking-tighter mb-16 ${
+                 <h2 className={`font-display font-black text-3xl sm:text-4xl md:text-6xl uppercase tracking-tighter mb-10 sm:mb-16 ${
                      isLight ? 'text-black' : 'text-white'
                  }`}>
                      Cognitive <br/> Engineering
@@ -160,10 +160,10 @@ const ServicesPage: React.FC = () => {
 
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
                      <div>
-                         <h4 className={`font-display font-bold text-xl uppercase mb-4 ${
+                         <h4 className={`font-display font-bold text-lg sm:text-xl uppercase mb-3 sm:mb-4 ${
                              isLight ? 'text-black' : 'text-white'
                          }`}>Autonomous Scraping & Ingestion</h4>
-                         <p className={`font-sans text-sm leading-relaxed mb-6 ${
+                         <p className={`font-sans text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6 ${
                              isLight ? 'text-black/65' : 'text-white/50'
                          }`}>
                              Extracting structural data from thousands of pages at scale. I configure robust scraper networks using Scrapy and Selenium, with auto-triggering workflows that format raw unstructured text into relational databases or vector indices.
@@ -171,10 +171,10 @@ const ServicesPage: React.FC = () => {
                          <div className={`w-12 h-px ${isLight ? 'bg-black/20' : 'bg-white/20'}`}></div>
                      </div>
                      <div>
-                         <h4 className={`font-display font-bold text-xl uppercase mb-4 ${
+                         <h4 className={`font-display font-bold text-lg sm:text-xl uppercase mb-3 sm:mb-4 ${
                              isLight ? 'text-black' : 'text-white'
                          }`}>Semantic Context & RAG Apps</h4>
-                         <p className={`font-sans text-sm leading-relaxed mb-6 ${
+                         <p className={`font-sans text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6 ${
                              isLight ? 'text-black/65' : 'text-white/50'
                          }`}>
                              Connecting your custom company knowledge base directly to large language model agents. I architect vector search indexes that enable intelligent question-answering with high precision and verifiable citations.
@@ -185,20 +185,20 @@ const ServicesPage: React.FC = () => {
             </div>
 
             {/* CTA */}
-            <div className="container mx-auto px-6 md:px-12 pt-32 text-center">
-                 <h2 className={`font-display font-black text-4xl md:text-6xl uppercase leading-tight mb-8 ${
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 pt-16 sm:pt-24 md:pt-32 text-center">
+                 <h2 className={`font-display font-black text-3xl sm:text-4xl md:text-6xl uppercase leading-tight mb-6 sm:mb-8 ${
                      isLight ? 'text-black' : 'text-white'
                  }`}>
                     Ready to elevate <br/> your brand?
                  </h2>
-                 <p className={`font-sans mb-12 max-w-lg mx-auto ${
+                 <p className={`font-sans text-sm sm:text-base mb-8 sm:mb-12 max-w-lg mx-auto ${
                      isLight ? 'text-black/60' : 'text-white/50'
                  }`}>
                      Let's collaborate to build something that commands attention and delivers results.
                  </p>
                  <a 
                      href="mailto:Mostafadrazy@gmail.com" 
-                     className={`inline-block px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-accent-red hover:text-white transition-all shadow-xl ${
+                     className={`inline-block px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-accent-red hover:text-white transition-all shadow-xl ${
                          isLight 
                              ? 'bg-black text-white hover:bg-accent-red' 
                              : 'bg-white text-black hover:bg-accent-red hover:text-white'
