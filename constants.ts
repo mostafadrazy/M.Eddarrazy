@@ -6,7 +6,7 @@ export const SOCIAL_LINKS = {
   phone: "+212 657 067 384",
   linkedin: "https://linkedin.com/in/eddarrazy",
   github: "https://github.com/mostafadrazy",
-  instagram: "https://www.instagram.com/drazzzy__",
+  instagram: "https://www.instagram.com/drazzzy__?stkn=MWFsZXVxNnV2NGl3Zg==",
   x: "https://x.com/drazzzy__",
   behance: "https://www.behance.net/mostafadrazy",
   website: "https://www.9adiya.site/",
