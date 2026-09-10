@@ -21,6 +21,7 @@ const ScrollingVideoBackground: React.FC = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
   const location = useLocation();
   const { isLight } = useTheme();
 
@@ -107,9 +108,17 @@ const ScrollingVideoBackground: React.FC = () => {
       }
     };
 
+    const handleError = () => {
+      // Both HLS and MP4 sources failed: stop waiting, hide the video,
+      // and let the ambient overlays carry the background instead.
+      setVideoFailed(true);
+      setIsLoaded(true);
+    };
+
     video.addEventListener('seeked', handleSeeked);
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('progress', handleProgress);
+    video.addEventListener('error', handleError);
 
     // Setup HLS.js configuration
     const config = {
@@ -170,11 +179,20 @@ const ScrollingVideoBackground: React.FC = () => {
       video.removeEventListener('seeked', handleSeeked);
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('progress', handleProgress);
+      video.removeEventListener('error', handleError);
       if (hls) {
         hls.destroy();
       }
     };
   }, [sources.hls, sources.mp4]);
+
+  // Safety net: never trap the visitor behind the loading overlay.
+  // If the video hasn't loaded after 12s, dismiss the overlay anyway.
+  useEffect(() => {
+    if (isLoaded) return;
+    const timer = setTimeout(() => setIsLoaded(true), 12000);
+    return () => clearTimeout(timer);
+  }, [isLoaded]);
 
   // Scroll seek trigger setup
   useGSAP(() => {
@@ -236,6 +254,7 @@ const ScrollingVideoBackground: React.FC = () => {
         ref={wrapperRef}
         className="fixed top-0 left-0 w-full h-full z-0 scale-[1.05] origin-center pointer-events-none select-none overflow-hidden bg-cinema-black transition-colors duration-400"
       >
+        {!videoFailed && (
         <video
           ref={videoRef}
           className={`w-full h-full object-cover scale-[1.35] transition-opacity duration-500 ${
@@ -245,6 +264,7 @@ const ScrollingVideoBackground: React.FC = () => {
           playsInline
           crossOrigin="anonymous"
         />
+        )}
         {/* Ambient Overlays */}
         <div className={`absolute inset-0 z-[1] pointer-events-none transition-all duration-400 ${
           isLight 
