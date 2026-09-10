@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
-import { IMAGES, EXPERIENCE, SKILLS } from '../constants';
-import { ArrowDown } from 'lucide-react'; // Download icon kept out until résumé file is provided
+import { IMAGES, EXPERIENCE, SKILLS, SOCIAL_LINKS } from '../constants';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
     useEffect(() => {
@@ -52,15 +52,16 @@ const AboutPage: React.FC = () => {
                                  <span className="font-sans text-white text-xs sm:text-sm">Motion & Graphic Design</span>
                              </div>
 
-                             {/* Résumé download hidden until a résumé file is provided
+                             {/* No résumé file yet — link to LinkedIn instead */}
                              <a 
-                                href="#" 
+                                href={SOCIAL_LINKS.linkedin}
+                                target="_blank"
+                                rel="noreferrer"
                                 className="group w-full bg-white text-black py-3.5 sm:py-4 rounded-xl font-sans font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-accent-red hover:text-white transition-all duration-300"
                              >
-                                <span>Download Résumé</span>
-                                <Download size={15} className="group-hover:translate-y-1 transition-transform" />
+                                <span>View LinkedIn</span>
+                                <ArrowUpRight size={15} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
                              </a>
-                             */}
                         </div>
                     </div>
 
