@@ -112,7 +112,9 @@ const Footer: React.FC = () => {
                        <ul className="space-y-2.5 font-sans font-medium text-sm md:text-base">
                           <li><a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className={`transition-colors ${isLight ? 'text-black/60 hover:text-accent-red' : 'text-white/60 hover:text-accent-red'}`}>LinkedIn</a></li>
                           <li><a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className={`transition-colors ${isLight ? 'text-black/60 hover:text-accent-red' : 'text-white/60 hover:text-accent-red'}`}>GitHub</a></li>
-                          {/* Instagram / X links hidden until real profile URLs are provided */}
+                          <li><a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" className={`transition-colors ${isLight ? 'text-black/60 hover:text-accent-red' : 'text-white/60 hover:text-accent-red'}`}>Instagram</a></li>
+                          <li><a href={SOCIAL_LINKS.x} target="_blank" rel="noreferrer" className={`transition-colors ${isLight ? 'text-black/60 hover:text-accent-red' : 'text-white/60 hover:text-accent-red'}`}>X</a></li>
+                          <li><a href={SOCIAL_LINKS.behance} target="_blank" rel="noreferrer" className={`transition-colors ${isLight ? 'text-black/60 hover:text-accent-red' : 'text-white/60 hover:text-accent-red'}`}>Behance</a></li>
                        </ul>
                    </div>
                 </div>
