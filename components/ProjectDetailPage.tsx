@@ -263,7 +263,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ onModalStateChang
                 rel="noreferrer"
                 className="group w-full flex items-center justify-between gap-4 sm:gap-6 bg-white text-black pl-5 sm:pl-6 pr-2 py-2 rounded-full font-sans font-bold uppercase tracking-wider hover:bg-accent-red transition-all duration-300 pointer-events-auto"
               >
-                <span className="text-xs md:text-sm">{isWeb ? 'Explore Live Site' : 'Launch Full Output'}</span>
+                <span className="text-xs md:text-sm">{isWeb ? 'View Case Study' : 'Launch Full Output'}</span>
                 <div className="w-9 h-9 sm:w-10 sm:h-10 bg-black text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
                   <ArrowUpRight size={14} />
                 </div>
