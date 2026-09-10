@@ -84,11 +84,19 @@ const ContactPage: React.FC = () => {
                                     <span className="font-sans text-base sm:text-lg">LinkedIn</span>
                                     <ArrowUpRight className="group-hover/link:-translate-y-1 group-hover/link:translate-x-1 transition-transform" size={18} />
                                 </a>
-                                <a href="#" target="_blank" rel="noreferrer" className="flex items-center justify-between text-white/60 hover:text-white group/link">
+                                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="flex items-center justify-between text-white/60 hover:text-white group/link">
+                                    <span className="font-sans text-base sm:text-lg">GitHub</span>
+                                    <ArrowUpRight className="group-hover/link:-translate-y-1 group-hover/link:translate-x-1 transition-transform" size={18} />
+                                </a>
+                                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" className="flex items-center justify-between text-white/60 hover:text-white group/link">
                                     <span className="font-sans text-base sm:text-lg">Instagram</span>
                                     <ArrowUpRight className="group-hover/link:-translate-y-1 group-hover/link:translate-x-1 transition-transform" size={18} />
                                 </a>
-                                <a href="#" target="_blank" rel="noreferrer" className="flex items-center justify-between text-white/60 hover:text-white group/link">
+                                <a href={SOCIAL_LINKS.x} target="_blank" rel="noreferrer" className="flex items-center justify-between text-white/60 hover:text-white group/link">
+                                    <span className="font-sans text-base sm:text-lg">X</span>
+                                    <ArrowUpRight className="group-hover/link:-translate-y-1 group-hover/link:translate-x-1 transition-transform" size={18} />
+                                </a>
+                                <a href={SOCIAL_LINKS.behance} target="_blank" rel="noreferrer" className="flex items-center justify-between text-white/60 hover:text-white group/link">
                                     <span className="font-sans text-base sm:text-lg">Behance</span>
                                     <ArrowUpRight className="group-hover/link:-translate-y-1 group-hover/link:translate-x-1 transition-transform" size={18} />
                                 </a>
