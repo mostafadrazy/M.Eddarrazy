@@ -205,7 +205,9 @@ const Navigation: React.FC<NavigationProps> = ({ hideMenu = false }) => {
                     {[
                       { name: 'LinkedIn', href: SOCIAL_LINKS.linkedin },
                       { name: 'GitHub', href: SOCIAL_LINKS.github },
-                      /* Behance / Instagram hidden until real profile URLs are provided */
+                      { name: 'Instagram', href: SOCIAL_LINKS.instagram },
+                      { name: 'X', href: SOCIAL_LINKS.x },
+                      { name: 'Behance', href: SOCIAL_LINKS.behance },
                     ].map((social) => (
                         <a key={social.name} href={social.href} target="_blank" rel="noreferrer" className={`font-sans text-xs md:text-sm uppercase tracking-wider transition-colors ${
                           isLight ? 'text-black/60 hover:text-black' : 'text-white/60 hover:text-white'
