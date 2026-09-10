@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
                        </p>
                    </div>
                    <div className={`hidden md:block mt-8 font-mono text-[10px] uppercase tracking-widest ${isLight ? 'text-black/30' : 'text-white/20'}`}>
-                     © 2025 Mustapha Eddarrazy. All Rights Reserved.
+                     © {new Date().getFullYear()} Mustapha Eddarrazy. All Rights Reserved.
                    </div>
                 </div>
 
@@ -111,8 +111,8 @@ const Footer: React.FC = () => {
                       <h4 className="font-mono text-[10px] md:text-xs text-accent-red uppercase tracking-widest mb-4">Socials</h4>
                        <ul className="space-y-2.5 font-sans font-medium text-sm md:text-base">
                           <li><a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className={`transition-colors ${isLight ? 'text-black/60 hover:text-accent-red' : 'text-white/60 hover:text-accent-red'}`}>LinkedIn</a></li>
-                          <li><a href="#" className={`transition-colors ${isLight ? 'text-black/60 hover:text-accent-red' : 'text-white/60 hover:text-accent-red'}`}>Instagram</a></li>
-                          <li><a href="#" className={`transition-colors ${isLight ? 'text-black/60 hover:text-accent-red' : 'text-white/60 hover:text-accent-red'}`}>Twitter</a></li>
+                          <li><a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className={`transition-colors ${isLight ? 'text-black/60 hover:text-accent-red' : 'text-white/60 hover:text-accent-red'}`}>GitHub</a></li>
+                          {/* Instagram / X links hidden until real profile URLs are provided */}
                        </ul>
                    </div>
                 </div>
@@ -142,7 +142,7 @@ const Footer: React.FC = () => {
                     <div className={`md:hidden mt-8 font-mono text-[10px] uppercase tracking-widest ${
                       isLight ? 'text-black/30' : 'text-white/20'
                     }`}>
-                        © 2025 Mustapha Eddarrazy. All Rights Reserved.
+                        © {new Date().getFullYear()} Mustapha Eddarrazy. All Rights Reserved.
                     </div>
                  </div>
 
