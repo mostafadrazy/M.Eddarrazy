@@ -4,6 +4,7 @@ import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AnimatedLogo from './AnimatedLogo';
 import { useTheme } from '../context/ThemeContext';
+import { SOCIAL_LINKS } from '../constants';
 
 interface NavigationProps {
     hideMenu?: boolean;
@@ -201,11 +202,15 @@ const Navigation: React.FC<NavigationProps> = ({ hideMenu = false }) => {
                     </a>
                 </div>
                 <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
-                    {['LinkedIn', 'Behance', 'Instagram'].map((social) => (
-                        <a key={social} href="#" className={`font-sans text-xs md:text-sm uppercase tracking-wider transition-colors ${
+                    {[
+                      { name: 'LinkedIn', href: SOCIAL_LINKS.linkedin },
+                      { name: 'GitHub', href: SOCIAL_LINKS.github },
+                      /* Behance / Instagram hidden until real profile URLs are provided */
+                    ].map((social) => (
+                        <a key={social.name} href={social.href} target="_blank" rel="noreferrer" className={`font-sans text-xs md:text-sm uppercase tracking-wider transition-colors ${
                           isLight ? 'text-black/60 hover:text-black' : 'text-white/60 hover:text-white'
                         }`}>
-                            {social}
+                            {social.name}
                         </a>
                     ))}
                 </div>
