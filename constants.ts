@@ -5,6 +5,7 @@ export const SOCIAL_LINKS = {
   email: "Mostafadrazy@gmail.com",
   phone: "+212 657 067 384",
   linkedin: "https://linkedin.com/in/eddarrazy",
+  github: "https://github.com/mostafadrazy",
   website: "https://www.9adiya.site/",
   location: "Salé, Morocco"
 };
